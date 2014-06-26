@@ -1,0 +1,56 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/FrameLayout1"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    
+    tools:context="com.truthgame.MainActivity$PlaceholderFragment" >
+
+    <LinearLayout
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:layout_margin="-10dp"
+        android:orientation="vertical" >
+
+        <FrameLayout
+            android:id="@+id/top_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_bg_top" >
+
+            <ImageView
+                android:id="@+id/imageView1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_vertical|center_horizontal"
+                android:src="@drawable/volchock" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/middle_frame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="1dp"
+            android:layout_marginBottom="1dp"
+            android:background="@drawable/separator_background" >
+
+            <TextView
+                android:id="@+id/textView_action"
+                android:layout_width="fill_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/action_begin_text"
+                android:textColor="@android:color/white" />
+
+        </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/bottom_drame"
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:background="@drawable/img_bg_bottom" >
+        </FrameLayout>
+    </LinearLayout>
+
+</FrameLayout>
