@@ -2,6 +2,8 @@ package com.truthgame;
 
 import java.util.Locale;
 
+import com.truthgame.logic.GameLogic;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -92,7 +94,7 @@ public class MainActivity extends ActionBarActivity implements
 		int id = item.getItemId();
 		if (id == R.id.action_settings) {
 			return true;
-		}
+		}		
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -184,6 +186,7 @@ public class MainActivity extends ActionBarActivity implements
 			switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
 			case 1: {
 				rootView = inflater.inflate(R.layout.fragment_main, container, false);
+				GameLogic gameLogic = new GameLogic(getActivity(), rootView);
 				break;
 				}
 			case 2: {

@@ -15,6 +15,11 @@ public final class R {
         public static final int abc_slide_in_top=0x7f040003;
         public static final int abc_slide_out_bottom=0x7f040004;
         public static final int abc_slide_out_top=0x7f040005;
+        public static final int animatios=0x7f040006;
+        public static final int selectcard=0x7f040007;
+    }
+    public static final class array {
+        public static final int actions=0x7f0c0000;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -1109,7 +1114,7 @@ containing a value of this type.
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
-        public static final int bottom_drame=0x7f050042;
+        public static final int bottom_frame=0x7f050042;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1125,7 +1130,7 @@ containing a value of this type.
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView1=0x7f05003f;
+        public static final int imageView_volchok=0x7f05003f;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1224,7 +1229,7 @@ containing a value of this type.
         public static final int support_simple_spinner_dropdown_item=0x7f03001b;
     }
     public static final class menu {
-        public static final int main=0x7f0c0000;
+        public static final int main=0x7f0d0000;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 
@@ -1267,16 +1272,16 @@ containing a value of this type.
         /**  Description of a share target (both in the list of such or the default share button) in a ShareActionProvider (share UI). [CHAR LIMIT=NONE] 
          */
         public static final int abc_shareactionprovider_share_with_application=0x7f0a000b;
-        public static final int action_begin_text=0x7f0a0012;
-        public static final int action_progress_text=0x7f0a0013;
-        public static final int action_settings=0x7f0a0011;
+        public static final int action_begin_text=0x7f0a0018;
+        public static final int action_progress_text=0x7f0a0019;
+        public static final int action_settings=0x7f0a0014;
         public static final int app_name=0x7f0a000d;
-        public static final int rules_chips=0x7f0a0016;
-        public static final int rules_chips_text=0x7f0a0019;
-        public static final int rules_steps=0x7f0a0014;
-        public static final int rules_steps_text=0x7f0a0017;
-        public static final int rules_text=0x7f0a0018;
-        public static final int rules_types=0x7f0a0015;
+        public static final int rules_chips=0x7f0a0013;
+        public static final int rules_chips_text=0x7f0a0017;
+        public static final int rules_steps=0x7f0a0011;
+        public static final int rules_steps_text=0x7f0a0015;
+        public static final int rules_text=0x7f0a0016;
+        public static final int rules_types=0x7f0a0012;
         public static final int title_section1=0x7f0a000e;
         public static final int title_section2=0x7f0a000f;
         public static final int title_section3=0x7f0a0010;
