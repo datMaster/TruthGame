@@ -4,30 +4,33 @@
     <string name="app_name">TruthGame</string>
     <string name="title_section1">Игра</string>
     <string name="title_section2">Правила</string>
-    <string name="title_section3">Больше</string>    
-    
+    <string name="title_section3">Больше</string>
     <string name="rules_steps">Шаги</string>
     <string name="rules_types">Типы карт</string>
     <string name="rules_chips">Фишки</string>
     <string name="action_settings">Settings</string>
     <string name="rules_steps_text"> 1)Игроки садятся в круг и по очереди крутят волчок\n2)Согласно выпавшему цвету, игрок отвечает на вопрос с открывшейся карты\n3)Вопрос с карты задается человеку, сидящему слева</string>
-        
     <string name="rules_text">Желтая колода - неловкие вопросы\nКрасная колода - откровенные вопросы\nСиняя колода - вопросы \"на подумать\"\nБелая колода - игрок задает вопрос от себя\nВнимание: цвет карты генерируется случайным образом!</string>
-        
     <string name="rules_chips_text">Иногда на картах будут появляться картинки с дополнительными действиями: 
         Джокер - игрок должен открыть книгу/газету/сайт/журнал и задать вопрос, 
         который содержит любое слово из первого предложения, попавшегося на глаза. Дополнительная карта - ответив
         на вопрос с данной карты, игрок должен ответить на дополнительный вопрос с карты из колоды того же цвета.
         Переход хода - игрок может переадресовать вопрос с данной карты любому другому игроку. Ход игры продолжается с игрока,
         которому переадресовали вопрос</string>
-        
     <string name="action_begin_text">Нажмите на волчок чтобы запустить его!</string>
     <string name="action_progress_text">Волчок крутиться...</string>
-    <string-array name="actions">    		
-		<item name="action_yellow">Выпал желтый цвет!</item>
-		<item name="action_red">Выпал красный цвет!</item>
-		<item name="action_blue">Выпал синий цвет!</item>
-		<item name="action_white">Выпал белый цвет!</item>    	    	
+
+    <string-array name="actions">
+        <item name="action_yellow">Выпал желтый цвет!</item>
+        <item name="action_red">Выпал красный цвет!</item>
+        <item name="action_blue">Выпал синий цвет!</item>
+        <item name="action_white">Выпал белый цвет!</item>
     </string-array>
-        
+
+    <string name="title_activity_question">QuestionActivity</string>
+    <string name="hello_world">Hello world!</string>
+    
+    <string name="cancel_string">Ответить онлайн</string>
+    <string name="ok_string">Крутить волчок</string>
+
 </resources>
