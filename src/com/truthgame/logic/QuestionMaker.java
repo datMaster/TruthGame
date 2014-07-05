@@ -15,6 +15,7 @@ public class QuestionMaker {
 	private CharSequence[] blueQuestions;
 	private CharSequence[] yellowQuestions;	
 	private Random random;
+	private QuestionHolder holder;
 	
 	public QuestionMaker(Activity activity) {
 		this.activity = activity;
@@ -22,36 +23,57 @@ public class QuestionMaker {
 		blueQuestions = activity.getResources().getTextArray(R.array.blue_questions);
 		yellowQuestions = activity.getResources().getTextArray(R.array.yellow_questions);
 		random = new Random();
+		holder = new QuestionHolder();
+	}
+	
+	private void getCard() {
+		int id = random.nextInt(Constants.MAX_CARDS);
+		switch (id) {
+		case Constants.JOKER_CARD:
+			holder.card = activity.getResources().getDrawable(R.drawable.action_joker);
+			break;
+		case Constants.PLUS_ONE_CARD:
+			holder.card = activity.getResources().getDrawable(R.drawable.action_more);
+			break;
+		case Constants.REDIRECT_CARD:
+			holder.card = activity.getResources().getDrawable(R.drawable.action_change);
+			break;
+		default:
+			holder.card = null;
+			break;
+		}
+	}
+	
+	private void getQuestionAndTitle(CharSequence[] questions, int title, int color) {
+		getCard();
+		if (questions != null) {
+			int index = random.nextInt(questions.length - 1);
+			holder.text = questions[index].toString();
+		} else {
+			holder.text = activity.getResources().getString(
+					R.string.white_question);
+		}
+		holder.title = activity.getResources().getString(title);
+		holder.color = activity.getResources().getColor(color);
 	}
 	
 	public QuestionHolder getQuestion(int color) {
-		QuestionHolder holder = new QuestionHolder();		
+				
 		switch(color) {
 			case Constants.YELLOW_CARD : {
-				int index = random.nextInt(yellowQuestions.length - 1);
-				holder.text = yellowQuestions[index].toString();
-				holder.title = activity.getResources().getString(R.string.yellow_question_title);
-				holder.color = activity.getResources().getColor(R.color.yellow_question_color);
+				getQuestionAndTitle(yellowQuestions, R.string.yellow_question_title, R.color.yellow_question_color);				
 			}
 				break;
-			case Constants.RED_CARD : { 
-				int index = random.nextInt(redQuestions.length - 1);
-				holder.text = redQuestions[index].toString();
-				holder.title = activity.getResources().getString(R.string.red_question_title);
-				holder.color = activity.getResources().getColor(R.color.red_question_color);
+			case Constants.RED_CARD : {
+				getQuestionAndTitle(redQuestions, R.string.red_question_title, R.color.red_question_color);				
 			}
 				break;
 			case Constants.BLUE_CARD : {
-				int index = random.nextInt(blueQuestions.length - 1);
-				holder.text = blueQuestions[index].toString();
-				holder.title = activity.getResources().getString(R.string.blue_question_title);
-				holder.color = activity.getResources().getColor(R.color.blue_question_color);
+				getQuestionAndTitle(blueQuestions, R.string.blue_question_title, R.color.blue_question_color);				
 			}
 			break;			
 			case Constants.WHITE_CARD : {
-				holder.text = activity.getResources().getString(R.string.white_question);
-				holder.title = activity.getResources().getString(R.string.white_question_title);
-				holder.color = activity.getResources().getColor(R.color.white_question_color);
+				getQuestionAndTitle(null, R.string.white_question_title, R.color.white_question_color);				
 			}
 			break;
 		}

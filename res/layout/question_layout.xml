@@ -17,7 +17,8 @@
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
             android:text="TextView"
-            android:textStyle="bold" />
+            android:textSize="20sp"
+            android:textStyle="normal" />
 
     </FrameLayout>
 
@@ -30,11 +31,19 @@
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:gravity="center_horizontal"
-            android:text="TextView" />
+            android:text="TextView"
+            android:textSize="16sp" />
 
     </FrameLayout>
 
+    <ImageView
+        android:id="@+id/imageView_card"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/transparent" />
+
     <LinearLayout
+        android:id="@+id/linearLayout_buttons"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_weight="1" >
@@ -44,7 +53,9 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginRight="1dp"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:text="@string/cancel_string" />
 
         <Button
@@ -52,7 +63,9 @@
             style="?android:attr/buttonStyleSmall"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="1dp"
             android:layout_weight="1"
+            android:background="@android:color/white"
             android:text="@string/ok_string" />
 
     </LinearLayout>

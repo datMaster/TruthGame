@@ -11,12 +11,14 @@ import android.app.Dialog;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
+import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
 import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 public class GameLogic implements OnClickListener, AnimationListener {
@@ -31,6 +33,7 @@ public class GameLogic implements OnClickListener, AnimationListener {
 	private Dialog dialog;
 	private int cardID;
 	private QuestionMaker questionMaker;
+	private WindowManager.LayoutParams lp;
 	
 	public GameLogic(Activity activ, View rootView) {
 		this.activity = activ;
@@ -58,8 +61,14 @@ public class GameLogic implements OnClickListener, AnimationListener {
 		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
 		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_ok);
 		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_cancel);
+		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
+		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card);
 		viewHolder.okButton.setOnClickListener(this);
-		viewHolder.cancelButton.setOnClickListener(this);				
+		viewHolder.cancelButton.setOnClickListener(this);
+		
+		lp = new WindowManager.LayoutParams();
+	    lp.copyFrom(dialog.getWindow().getAttributes());
+	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;	    
 	}
 	
 	private void reset() {
@@ -147,7 +156,8 @@ public class GameLogic implements OnClickListener, AnimationListener {
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				dialogSetQuestionText(questionMaker.getQuestion(cardID));
-				dialog.show();
+				dialog.getWindow().setAttributes(lp);
+				dialog.show();			
 			}
 		});
 	}
@@ -165,6 +175,14 @@ public class GameLogic implements OnClickListener, AnimationListener {
 		viewHolder.tvQuestion.setText(questionHolder.text);
 		viewHolder.tvTitle.setBackgroundColor(questionHolder.color);
 		viewHolder.tvQuestion.setBackgroundColor(questionHolder.color);
+		viewHolder.buttonsLayout.setBackgroundColor(questionHolder.color);
+		if(questionHolder.card != null) {
+			viewHolder.cardImage.setBackground(questionHolder.card);
+			viewHolder.cardImage.setVisibility(View.VISIBLE);
+		}
+		else {
+			viewHolder.cardImage.setVisibility(View.GONE);
+		}
 	}
 		
 }
