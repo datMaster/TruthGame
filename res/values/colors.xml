@@ -1,5 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
     <color name="activity_transparent_color">#00000000</color>
+    <color name="white_question_color">#dfdfdf</color>
+    <color name="blue_question_color">#aaebf5</color>
+    <color name="red_question_color">#f58585</color>
+    <color name="yellow_question_color">#fae878</color>
     
 </resources>

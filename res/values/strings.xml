@@ -32,7 +32,13 @@
     
     <string name="cancel_string">Ответить онлайн</string>
     <string name="ok_string">Крутить волчок</string>
-	
+    
+    <string name="red_question_title">Откровенный вопрос</string>
+	<string name="yellow_question_title">Неловкий вопрос</string>
+	<string name="blue_question_title">Вопрос на подумать</string>    
+    <string name="white_question_title">Свободый вопрос</string>
+    
+	<string name="white_question">Задайте вопрос от себя!</string>
     <string-array name="blue_questions">
         ﻿<item>Есть ли у вас конкретная цель в жизни?</item>
 		<item>Какие ошибки допустили родители в вашем воспитании?</item>
@@ -145,7 +151,7 @@
 		<item>через какой срок после знакомства вы уже допускаете возможность..мм..интимных отношений?</item>        
     </string-array>
     
-    <string-array name="yellow_qyestions">
+    <string-array name="yellow_questions">
         <item>На каком документе вы подделывали подпись начальника?</item>
 		<item>Вы делали фото «уточкой»?</item>
 		<item>Вам случалось засыпать на спектакле / в кино?</item>

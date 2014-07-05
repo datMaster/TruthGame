@@ -3,13 +3,13 @@ package com.truthgame.logic;
 import java.util.Random;
 
 import com.truthgame.holders.MainActivityHolder;
+import com.truthgame.holders.QuestionHolder;
 import com.truthgame.R;
 
 import android.app.Activity;
 import android.app.Dialog;
 import android.view.View;
 import android.view.View.OnClickListener;
-
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
@@ -29,6 +29,8 @@ public class GameLogic implements OnClickListener, AnimationListener {
 	private Random random;
 	private CharSequence[] actionsSequences;
 	private Dialog dialog;
+	private int cardID;
+	private QuestionMaker questionMaker;
 	
 	public GameLogic(Activity activ, View rootView) {
 		this.activity = activ;
@@ -39,6 +41,7 @@ public class GameLogic implements OnClickListener, AnimationListener {
 		this.viewHolder = new MainActivityHolder();
 		this.actionsSequences = this.activity.getResources().getTextArray(R.array.actions);
 		this.random = new Random();
+		this.questionMaker = new QuestionMaker(this.activity);
 		setAnimationListener();
 		init();
 	}
@@ -50,14 +53,18 @@ public class GameLogic implements OnClickListener, AnimationListener {
 		viewHolder.tvActionText = (TextView)rootView.findViewById(R.id.textView_action);
 		viewHolder.imgVolchock.setOnClickListener(this);
 		
+		dialog();
 		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text);
 		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
 		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_ok);
 		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_cancel);
 		viewHolder.okButton.setOnClickListener(this);
-		viewHolder.cancelButton.setOnClickListener(this);
-		
-		dialog();
+		viewHolder.cancelButton.setOnClickListener(this);				
+	}
+	
+	private void reset() {
+		viewHolder.tvActionText.setText(activity.getResources().getString(R.string.action_begin_text));
+		viewHolder.layBottom.setBackgroundResource(R.drawable.img_bg_bottom);
 	}
 
 
@@ -70,10 +77,12 @@ public class GameLogic implements OnClickListener, AnimationListener {
 		case R.id.button_ok:
 			// крутить волчок
 			dialog.dismiss();
+			reset();
 			break;
 		case R.id.button_cancel:
 			// ответить онлайн
 			dialog.dismiss();
+			reset();
 			break;
 
 		default:
@@ -90,9 +99,9 @@ public class GameLogic implements OnClickListener, AnimationListener {
 
 	@Override
 	public void onAnimationEnd(Animation animation) {
-		int id = random.nextInt(30) / 10;		
-		viewHolder.tvActionText.setText(actionsSequences[id]);
-		switch (id) {
+		cardID = random.nextInt(30) / 10;		
+		viewHolder.tvActionText.setText(actionsSequences[cardID]);
+		switch (cardID) {
 		case 0:								
 			viewHolder.layBottom.startAnimation(animationSlectCard);			
 			viewHolder.layBottom.setBackgroundResource(R.drawable.card_yellow);
@@ -137,8 +146,8 @@ public class GameLogic implements OnClickListener, AnimationListener {
 			
 			@Override
 			public void onAnimationEnd(Animation animation) {
-						dialog.show();
-				      
+				dialogSetQuestionText(questionMaker.getQuestion(cardID));
+				dialog.show();
 			}
 		});
 	}
@@ -151,8 +160,11 @@ public class GameLogic implements OnClickListener, AnimationListener {
 	    dialog.setCancelable(false);	    	    
 	}
 	
-	private void dialogSetQuestionText(String text) {
-		viewHolder.tvQuestion.setText(text);
+	private void dialogSetQuestionText(QuestionHolder questionHolder) {
+		viewHolder.tvTitle.setText(questionHolder.title);
+		viewHolder.tvQuestion.setText(questionHolder.text);
+		viewHolder.tvTitle.setBackgroundColor(questionHolder.color);
+		viewHolder.tvQuestion.setBackgroundColor(questionHolder.color);
 	}
 		
 }

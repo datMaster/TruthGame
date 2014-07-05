@@ -20,6 +20,9 @@ public final class R {
     }
     public static final class array {
         public static final int actions=0x7f0c0000;
+        public static final int blue_questions=0x7f0c0001;
+        public static final int red_questions=0x7f0c0002;
+        public static final int yellow_questions=0x7f0c0003;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -863,11 +866,15 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070004;
+        public static final int abc_search_url_text_holo=0x7f070008;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
         public static final int activity_transparent_color=0x7f070003;
+        public static final int blue_question_color=0x7f070005;
+        public static final int red_question_color=0x7f070006;
+        public static final int white_question_color=0x7f070004;
+        public static final int yellow_question_color=0x7f070007;
     }
     public static final class dimen {
         /**  Default height of an action bar. 
@@ -1286,9 +1293,11 @@ containing a value of this type.
         public static final int action_progress_text=0x7f0a0019;
         public static final int action_settings=0x7f0a0014;
         public static final int app_name=0x7f0a000d;
+        public static final int blue_question_title=0x7f0a0020;
         public static final int cancel_string=0x7f0a001c;
         public static final int hello_world=0x7f0a001b;
         public static final int ok_string=0x7f0a001d;
+        public static final int red_question_title=0x7f0a001e;
         public static final int rules_chips=0x7f0a0013;
         public static final int rules_chips_text=0x7f0a0017;
         public static final int rules_steps=0x7f0a0011;
@@ -1299,6 +1308,9 @@ containing a value of this type.
         public static final int title_section1=0x7f0a000e;
         public static final int title_section2=0x7f0a000f;
         public static final int title_section3=0x7f0a0010;
+        public static final int white_question=0x7f0a0022;
+        public static final int white_question_title=0x7f0a0021;
+        public static final int yellow_question_title=0x7f0a001f;
     }
     public static final class style {
         /** 
