@@ -53,8 +53,9 @@ public class QuestionMaker {
 			holder.text = activity.getResources().getString(
 					R.string.white_question);
 		}
+		ShapeMaker shape = new ShapeMaker(activity, color);
 		holder.title = activity.getResources().getString(title);
-		holder.color = activity.getResources().getColor(color);
+		holder.color =  shape.getShapeDrawable();//activity.getResources().getDrawable(color);
 	}
 	
 	public QuestionHolder getQuestion(int color) {

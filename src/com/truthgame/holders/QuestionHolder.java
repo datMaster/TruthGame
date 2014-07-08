@@ -5,6 +5,6 @@ import android.graphics.drawable.Drawable;
 public class QuestionHolder {
 	public String title;
 	public String text;
-	public int color;
+	public Drawable color;
 	public Drawable card;
 }

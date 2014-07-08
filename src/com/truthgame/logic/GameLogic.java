@@ -8,6 +8,10 @@ import com.truthgame.R;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
+import android.graphics.drawable.ColorDrawable;
+import android.graphics.drawable.Drawable;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -19,9 +23,11 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.PopupWindow;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-public class GameLogic implements OnClickListener, AnimationListener {
+public class GameLogic extends Activity implements OnClickListener, AnimationListener {
 	
 	private Activity activity;
 	private MainActivityHolder viewHolder;
@@ -62,7 +68,8 @@ public class GameLogic implements OnClickListener, AnimationListener {
 		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_ok);
 		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_cancel);
 		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
-		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card);
+		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card);		
+		viewHolder.relativeLayout = (RelativeLayout) dialog.findViewById(R.id.relativeLayout_question);
 		viewHolder.okButton.setOnClickListener(this);
 		viewHolder.cancelButton.setOnClickListener(this);
 		
@@ -90,7 +97,7 @@ public class GameLogic implements OnClickListener, AnimationListener {
 			break;
 		case R.id.button_cancel:
 			// ответить онлайн
-			dialog.dismiss();
+			dialog.dismiss();			
 			reset();
 			break;
 
@@ -167,15 +174,17 @@ public class GameLogic implements OnClickListener, AnimationListener {
 	    dialog = new Dialog(activity);
 	    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    dialog.setContentView(R.layout.question_layout);
-	    dialog.setCancelable(false);	    	    
+	    dialog.setCancelable(false);
+	    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
 	}
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {
 		viewHolder.tvTitle.setText(questionHolder.title);
 		viewHolder.tvQuestion.setText(questionHolder.text);
-		viewHolder.tvTitle.setBackgroundColor(questionHolder.color);
-		viewHolder.tvQuestion.setBackgroundColor(questionHolder.color);
-		viewHolder.buttonsLayout.setBackgroundColor(questionHolder.color);
+		viewHolder.relativeLayout.setBackground(questionHolder.color);
+//		viewHolder.tvTitle.setBackgroundColor(questionHolder.color);
+//		viewHolder.tvQuestion.setBackgroundColor(questionHolder.color);
+//		viewHolder.buttonsLayout.setBackgroundColor(questionHolder.color);
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);
 			viewHolder.cardImage.setVisibility(View.VISIBLE);

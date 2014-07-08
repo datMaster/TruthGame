@@ -28,4 +28,12 @@
     <item name="android:backgroundDimEnabled">false</item>
   </style>
   
+  
+
+
+    <style name="ThemeWithCorners" parent="android:Theme.Dialog">
+        <item name="android:windowBackground">@drawable/shape</item>
+    </style>
+
+		
 </resources>

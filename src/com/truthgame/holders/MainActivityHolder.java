@@ -4,6 +4,7 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 public class MainActivityHolder {
@@ -17,5 +18,7 @@ public class MainActivityHolder {
 	public TextView tvTitle = null;
 	public TextView tvQuestion = null;
 	public LinearLayout buttonsLayout = null;
-	public ImageView cardImage = null;
+	public ImageView cardImage = null;	
+		
+	public RelativeLayout relativeLayout = null;
 }
