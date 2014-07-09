@@ -55,7 +55,7 @@ public class QuestionMaker {
 		}
 		ShapeMaker shape = new ShapeMaker(activity, color);
 		holder.title = activity.getResources().getString(title);
-		holder.color =  shape.getShapeDrawable();//activity.getResources().getDrawable(color);
+		holder.color =  shape.getGradient();
 	}
 	
 	public QuestionHolder getQuestion(int color) {

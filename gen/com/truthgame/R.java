@@ -1105,10 +1105,8 @@ containing a value of this type.
         public static final int img_bg_bottom=0x7f020061;
         public static final int img_bg_top=0x7f020062;
         public static final int separator_background=0x7f020063;
-        public static final int shape=0x7f020064;
-        public static final int shape_button=0x7f020065;
-        public static final int transparent=0x7f020066;
-        public static final int volchock=0x7f020067;
+        public static final int transparent=0x7f020064;
+        public static final int volchock=0x7f020065;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f05003d;
@@ -1454,7 +1452,6 @@ containing a value of this type.
          */
         public static final int Theme_Base_Light=0x7f0b007f;
         public static final int Theme_Transparent=0x7f0b008b;
-        public static final int ThemeWithCorners=0x7f0b008e;
         /**  Styles in here can be extended for customisation in your application. Each utilises
          one of the Base styles. If Holo themes are available on the current platform version
          they will be used instead of the compat styles. 

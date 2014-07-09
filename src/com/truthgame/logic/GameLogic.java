@@ -2,16 +2,10 @@ package com.truthgame.logic;
 
 import java.util.Random;
 
-import com.truthgame.holders.MainActivityHolder;
-import com.truthgame.holders.QuestionHolder;
-import com.truthgame.R;
-
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
+import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
-import android.graphics.drawable.Drawable;
-import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -23,9 +17,12 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.PopupWindow;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+
+import com.truthgame.R;
+import com.truthgame.holders.MainActivityHolder;
+import com.truthgame.holders.QuestionHolder;
 
 public class GameLogic extends Activity implements OnClickListener, AnimationListener {
 	
@@ -39,7 +36,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	private Dialog dialog;
 	private int cardID;
 	private QuestionMaker questionMaker;
-	private WindowManager.LayoutParams lp;
+	private WindowManager.LayoutParams layoutParams;
 	
 	public GameLogic(Activity activ, View rootView) {
 		this.activity = activ;
@@ -73,9 +70,9 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.okButton.setOnClickListener(this);
 		viewHolder.cancelButton.setOnClickListener(this);
 		
-		lp = new WindowManager.LayoutParams();
-	    lp.copyFrom(dialog.getWindow().getAttributes());
-	    lp.width = WindowManager.LayoutParams.MATCH_PARENT;	    
+		layoutParams = new WindowManager.LayoutParams();
+	    layoutParams.copyFrom(dialog.getWindow().getAttributes());
+	    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;	    
 	}
 	
 	private void reset() {
@@ -97,15 +94,16 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			break;
 		case R.id.button_cancel:
 			// ответить онлайн
-			dialog.dismiss();			
-			reset();
-			break;
-
-		default:
-			break;
+			Intent sendIntent = new Intent();
+			sendIntent.setAction(Intent.ACTION_SEND);
+			sendIntent.putExtra(Intent.EXTRA_TEXT, "lsls");
+			sendIntent.setType("text/plain");
+						
+			activity.startActivity(Intent.createChooser(sendIntent, "opacha"));						
+			break;					
 		}
 	}
-
+	
 
 	@Override
 	public void onAnimationStart(Animation animation) {
@@ -146,45 +144,35 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	}
 	
 	private void setAnimationListener() {
-			animationSlectCard.setAnimationListener(new AnimationListener() {
-			
+			animationSlectCard.setAnimationListener(new AnimationListener() {			
 			@Override
-			public void onAnimationStart(Animation animation) {
-				// TODO Auto-generated method stub
-				
-			}
-			
+			public void onAnimationStart(Animation animation) {				
+			}			
 			@Override
-			public void onAnimationRepeat(Animation animation) {
-				// TODO Auto-generated method stub
-				
-			}
-			
+			public void onAnimationRepeat(Animation animation) {				
+			}			
 			@Override
 			public void onAnimationEnd(Animation animation) {
 				dialogSetQuestionText(questionMaker.getQuestion(cardID));
-				dialog.getWindow().setAttributes(lp);
-				dialog.show();			
+				dialog.getWindow().setAttributes(layoutParams);
+				dialog.show();						
 			}
 		});
 	}
-	
-	@SuppressWarnings("static-access")
+		
 	public void dialog() {
 	    dialog = new Dialog(activity);
 	    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
 	    dialog.setContentView(R.layout.question_layout);
-	    dialog.setCancelable(false);
 	    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
+	    
 	}
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {
 		viewHolder.tvTitle.setText(questionHolder.title);
-		viewHolder.tvQuestion.setText(questionHolder.text);
+		viewHolder.tvQuestion.setText(questionHolder.text);		
 		viewHolder.relativeLayout.setBackground(questionHolder.color);
-//		viewHolder.tvTitle.setBackgroundColor(questionHolder.color);
-//		viewHolder.tvQuestion.setBackgroundColor(questionHolder.color);
-//		viewHolder.buttonsLayout.setBackgroundColor(questionHolder.color);
+
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);
 			viewHolder.cardImage.setVisibility(View.VISIBLE);
@@ -192,6 +180,5 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		else {
 			viewHolder.cardImage.setVisibility(View.GONE);
 		}
-	}
-		
+	}	
 }

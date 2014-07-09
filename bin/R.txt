@@ -260,10 +260,8 @@ int drawable icon 0x7f020060
 int drawable img_bg_bottom 0x7f020061
 int drawable img_bg_top 0x7f020062
 int drawable separator_background 0x7f020063
-int drawable shape 0x7f020064
-int drawable shape_button 0x7f020065
-int drawable transparent 0x7f020066
-int drawable volchock 0x7f020067
+int drawable transparent 0x7f020064
+int drawable volchock 0x7f020065
 int id FrameLayout1 0x7f05003d
 int id action_bar 0x7f05001c
 int id action_bar_activity_content 0x7f050015
@@ -477,7 +475,6 @@ int style Theme_Base_AppCompat_Light_DialogWhenLarge 0x7f0b0086
 int style Theme_Base_AppCompat_Light_DialogWhenLarge_Base 0x7f0b008a
 int style Theme_Base_Light 0x7f0b007f
 int style Theme_Transparent 0x7f0b008b
-int style ThemeWithCorners 0x7f0b008e
 int style Widget_AppCompat_ActionBar 0x7f0b0000
 int style Widget_AppCompat_ActionBar_Solid 0x7f0b0002
 int style Widget_AppCompat_ActionBar_TabBar 0x7f0b0011
