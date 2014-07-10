@@ -2,6 +2,8 @@ package com.truthgame;
 
 import java.util.Locale;
 
+import com.truthgame.fragments.MoreFragment;
+import com.truthgame.fragments.Rulesfragment;
 import com.truthgame.logic.GameLogic;
 
 import android.support.v7.app.ActionBarActivity;
@@ -12,13 +14,11 @@ import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
-import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.TextView;
 
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -191,10 +191,12 @@ public class MainActivity extends ActionBarActivity implements
 				}
 			case 2: {
 				rootView = inflater.inflate(R.layout.fragment_rules, container, false);
+				Rulesfragment rulesFragment = new Rulesfragment(getActivity(), rootView);
 				break;
 				}
 			case 3: {
-				rootView = inflater.inflate(R.layout.fragment_main, container, false);
+				rootView = inflater.inflate(R.layout.fragment_more, container, false);
+				MoreFragment moreFragment = new MoreFragment(getActivity(), rootView);
 				break;
 				}
 			default:

@@ -21,7 +21,7 @@ public class QuestionMaker {
 		this.activity = activity;
 		redQuestions = activity.getResources().getTextArray(R.array.red_questions);
 		blueQuestions = activity.getResources().getTextArray(R.array.blue_questions);
-		yellowQuestions = activity.getResources().getTextArray(R.array.yellow_questions);
+		yellowQuestions = activity.getResources().getTextArray(R.array.yellow_questions);		
 		random = new Random();
 		holder = new QuestionHolder();
 	}

@@ -6,5 +6,6 @@
     <color name="red_question_color">#f58585</color>
     <color name="yellow_question_color">#fae878</color>
     <color name="white">#ffffff</color>
+    <color name="red_background">#c40d0f</color>
     
 </resources>

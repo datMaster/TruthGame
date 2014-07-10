@@ -17,12 +17,17 @@ public final class R {
         public static final int abc_slide_out_top=0x7f040005;
         public static final int animatios=0x7f040006;
         public static final int selectcard=0x7f040007;
+        public static final int show_dialog=0x7f040008;
     }
     public static final class array {
         public static final int actions=0x7f0c0000;
-        public static final int blue_questions=0x7f0c0001;
-        public static final int red_questions=0x7f0c0002;
-        public static final int yellow_questions=0x7f0c0003;
+        public static final int blue_questions=0x7f0c0005;
+        public static final int more_descr=0x7f0c0002;
+        public static final int more_img=0x7f0c0003;
+        public static final int more_links=0x7f0c0004;
+        public static final int more_titles=0x7f0c0001;
+        public static final int red_questions=0x7f0c0006;
+        public static final int yellow_questions=0x7f0c0007;
     }
     public static final class attr {
         /**  Custom divider drawable to use for elements in the action bar. 
@@ -866,12 +871,13 @@ containing a value of this type.
         public static final int abc_split_action_bar_is_narrow=0x7f060002;
     }
     public static final class color {
-        public static final int abc_search_url_text_holo=0x7f070009;
+        public static final int abc_search_url_text_holo=0x7f07000a;
         public static final int abc_search_url_text_normal=0x7f070000;
         public static final int abc_search_url_text_pressed=0x7f070002;
         public static final int abc_search_url_text_selected=0x7f070001;
         public static final int activity_transparent_color=0x7f070003;
         public static final int blue_question_color=0x7f070005;
+        public static final int red_background=0x7f070009;
         public static final int red_question_color=0x7f070006;
         public static final int white=0x7f070008;
         public static final int white_question_color=0x7f070004;
@@ -1095,21 +1101,28 @@ containing a value of this type.
         public static final int action_change=0x7f020057;
         public static final int action_joker=0x7f020058;
         public static final int action_more=0x7f020059;
-        public static final int big_image=0x7f02005a;
-        public static final int card_blue=0x7f02005b;
-        public static final int card_red=0x7f02005c;
-        public static final int card_white=0x7f02005d;
-        public static final int card_yellow=0x7f02005e;
-        public static final int ic_launcher=0x7f02005f;
-        public static final int icon=0x7f020060;
-        public static final int img_bg_bottom=0x7f020061;
-        public static final int img_bg_top=0x7f020062;
-        public static final int separator_background=0x7f020063;
-        public static final int transparent=0x7f020064;
-        public static final int volchock=0x7f020065;
+        public static final int android=0x7f02005a;
+        public static final int big_image=0x7f02005b;
+        public static final int blog=0x7f02005c;
+        public static final int brainbreak=0x7f02005d;
+        public static final int card_blue=0x7f02005e;
+        public static final int card_red=0x7f02005f;
+        public static final int card_white=0x7f020060;
+        public static final int card_yellow=0x7f020061;
+        public static final int ic_launcher=0x7f020062;
+        public static final int icon=0x7f020063;
+        public static final int img_bg_bottom=0x7f020064;
+        public static final int img_bg_top=0x7f020065;
+        public static final int separator_background=0x7f020066;
+        public static final int topquotes=0x7f020067;
+        public static final int transparent=0x7f020068;
+        public static final int vitacode=0x7f020069;
+        public static final int volchock=0x7f02006a;
     }
     public static final class id {
         public static final int FrameLayout1=0x7f05003d;
+        public static final int ListView_more=0x7f050043;
+        public static final int RelativeLayout_more_list_item=0x7f05004d;
         public static final int action_bar=0x7f05001c;
         public static final int action_bar_activity_content=0x7f050015;
         public static final int action_bar_container=0x7f05001b;
@@ -1121,13 +1134,14 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f050016;
         public static final int action_menu_presenter=0x7f050017;
         public static final int action_mode_close_button=0x7f050024;
-        public static final int action_settings=0x7f050051;
+        public static final int action_settings=0x7f050059;
         public static final int activity_chooser_view_content=0x7f050025;
         public static final int always=0x7f05000b;
         public static final int beginning=0x7f050011;
         public static final int bottom_frame=0x7f050042;
-        public static final int button_cancel=0x7f05004f;
-        public static final int button_ok=0x7f050050;
+        public static final int button_cancel=0x7f050057;
+        public static final int button_ok=0x7f050058;
+        public static final int button_rate=0x7f05004b;
         public static final int checkbox=0x7f05002d;
         public static final int collapseActionView=0x7f05000d;
         public static final int default_activity_button=0x7f050028;
@@ -1138,14 +1152,16 @@ containing a value of this type.
         public static final int end=0x7f050013;
         public static final int expand_activities_button=0x7f050026;
         public static final int expanded_menu=0x7f05002c;
+        public static final int frameLayout1=0x7f050044;
         public static final int home=0x7f050014;
         public static final int homeAsUp=0x7f050005;
         public static final int icon=0x7f05002a;
         public static final int ifRoom=0x7f05000a;
         public static final int image=0x7f050027;
-        public static final int imageView_card=0x7f05004d;
+        public static final int imageView_card=0x7f050055;
+        public static final int imageView_more_image=0x7f05004e;
         public static final int imageView_volchok=0x7f05003f;
-        public static final int linearLayout_buttons=0x7f05004e;
+        public static final int linearLayout_buttons=0x7f050056;
         public static final int listMode=0x7f050001;
         public static final int list_item=0x7f050029;
         public static final int middle=0x7f050012;
@@ -1156,9 +1172,10 @@ containing a value of this type.
         public static final int pager=0x7f05003c;
         public static final int progress_circular=0x7f050018;
         public static final int progress_horizontal=0x7f050019;
-        public static final int question_lay=0x7f05004a;
+        public static final int question_lay=0x7f050052;
         public static final int radio=0x7f05002f;
-        public static final int relativeLayout_question=0x7f050049;
+        public static final int ratingBar1=0x7f05004c;
+        public static final int relativeLayout_question=0x7f050051;
         public static final int search_badge=0x7f050032;
         public static final int search_bar=0x7f050031;
         public static final int search_button=0x7f050033;
@@ -1177,14 +1194,16 @@ containing a value of this type.
         public static final int submit_area=0x7f050039;
         public static final int tabMode=0x7f050002;
         public static final int textView_action=0x7f050041;
-        public static final int textView_chips=0x7f050047;
-        public static final int textView_chips_text=0x7f050048;
-        public static final int textView_question_text=0x7f05004c;
-        public static final int textView_steps=0x7f050043;
-        public static final int textView_steps_text=0x7f050044;
-        public static final int textView_title=0x7f05004b;
-        public static final int textView_types=0x7f050045;
-        public static final int textView_types_text=0x7f050046;
+        public static final int textView_chips=0x7f050049;
+        public static final int textView_chips_text=0x7f05004a;
+        public static final int textView_more_description=0x7f050050;
+        public static final int textView_more_title=0x7f05004f;
+        public static final int textView_question_text=0x7f050054;
+        public static final int textView_steps=0x7f050045;
+        public static final int textView_steps_text=0x7f050046;
+        public static final int textView_title=0x7f050053;
+        public static final int textView_types=0x7f050047;
+        public static final int textView_types_text=0x7f050048;
         public static final int title=0x7f05002b;
         public static final int top_action_bar=0x7f050020;
         public static final int top_frame=0x7f05003e;
@@ -1244,9 +1263,11 @@ containing a value of this type.
         public static final int abc_simple_decor=0x7f030017;
         public static final int activity_main=0x7f030018;
         public static final int fragment_main=0x7f030019;
-        public static final int fragment_rules=0x7f03001a;
-        public static final int question_layout=0x7f03001b;
-        public static final int support_simple_spinner_dropdown_item=0x7f03001c;
+        public static final int fragment_more=0x7f03001a;
+        public static final int fragment_rules=0x7f03001b;
+        public static final int more_list_view_tem=0x7f03001c;
+        public static final int question_layout=0x7f03001d;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001e;
     }
     public static final class menu {
         public static final int main=0x7f0d0000;
@@ -1297,24 +1318,28 @@ containing a value of this type.
         public static final int action_progress_text=0x7f0a0019;
         public static final int action_settings=0x7f0a0014;
         public static final int app_name=0x7f0a000d;
-        public static final int blue_question_title=0x7f0a0020;
-        public static final int cancel_string=0x7f0a001c;
-        public static final int hello_world=0x7f0a001b;
-        public static final int ok_string=0x7f0a001d;
-        public static final int red_question_title=0x7f0a001e;
+        public static final int blue_question_title=0x7f0a0023;
+        public static final int cancel_string=0x7f0a001f;
+        public static final int hello_world=0x7f0a001e;
+        public static final int ok_string=0x7f0a0020;
+        public static final int online_answer=0x7f0a001a;
+        public static final int rate_button=0x7f0a001c;
+        public static final int rate_link=0x7f0a0026;
+        public static final int red_question_title=0x7f0a0021;
         public static final int rules_chips=0x7f0a0013;
         public static final int rules_chips_text=0x7f0a0017;
         public static final int rules_steps=0x7f0a0011;
         public static final int rules_steps_text=0x7f0a0015;
         public static final int rules_text=0x7f0a0016;
         public static final int rules_types=0x7f0a0012;
-        public static final int title_activity_question=0x7f0a001a;
+        public static final int send_via=0x7f0a001b;
+        public static final int title_activity_question=0x7f0a001d;
         public static final int title_section1=0x7f0a000e;
         public static final int title_section2=0x7f0a000f;
         public static final int title_section3=0x7f0a0010;
-        public static final int white_question=0x7f0a0022;
-        public static final int white_question_title=0x7f0a0021;
-        public static final int yellow_question_title=0x7f0a001f;
+        public static final int white_question=0x7f0a0025;
+        public static final int white_question_title=0x7f0a0024;
+        public static final int yellow_question_title=0x7f0a0022;
     }
     public static final class style {
         /** 
@@ -1343,6 +1368,7 @@ containing a value of this type.
  All customizations that are NOT specific to a particular API-level can go here. 
          */
         public static final int AppTheme=0x7f0b008d;
+        public static final int QuestionDialogAnimation=0x7f0b008e;
         /**  Mimic text appearance in select_dialog_item.xml 
          */
         public static final int TextAppearance_AppCompat_Base_CompactMenu_Dialog=0x7f0b0063;

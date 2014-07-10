@@ -19,7 +19,9 @@
         которому переадресовали вопрос</string>
     <string name="action_begin_text">Нажмите на волчок чтобы запустить его!</string>
     <string name="action_progress_text">Волчок крутиться...</string>
-
+	<string name="online_answer">Игра в правду на Андроид http://goo.gl/myifN\nМой ответ на вопрос:</string>
+	<string name="send_via">Ответить в:</string>
+	<string name="rate_button">Оценить игру</string> 	
     <string-array name="actions">
         <item name="action_yellow">Выпал желтый цвет!</item>
         <item name="action_red">Выпал красный цвет!</item>
@@ -39,6 +41,39 @@
     <string name="white_question_title">Свободый вопрос</string>
     
 	<string name="white_question">Задайте вопрос от себя!</string>
+	
+	<string-array name="more_titles">
+	    <item>Top Quotes</item>
+	    <item>Brain Break</item>
+	    <item>Vitacode</item>
+	    <item>Блог разработчика</item>
+	    <item>Наша группа Вконтакте</item>
+	</string-array>
+	<string-array name="more_descr">
+	    <item>Лучшие цитаты из Ваших любимых сериалов абсолютно бесплатно и без подключения к интернету</item>
+	    <item>Минимизируйте стресс и улучшайте свою производительность</item>
+	    <item>Разшифруй свой номер мобильного - узнай как он звучит</item>	    
+	    <item>Новости, статьи об Андроид, путешествиях, бесплатная музыка и много другое в этом блоге</item>
+	    <item>Все про Андроид здесь. Множество обзоров, подарков и полезной информации. Подписывайтесь!</item>
+	</string-array>
+	<string-array name="more_img">
+	    <item>@drawable/topquotes</item>
+	    <item>@drawable/brainbreak</item>
+	    <item>@drawable/vitacode</item>	    
+	    <item>@drawable/blog</item>
+	    <item>@drawable/android</item>
+	</string-array>
+	
+	<string-array name="more_links">
+	    <item>https://play.google.com/store/apps/details?id=top.quotes.pkg</item>
+	    <item>https://play.google.com/store/apps/details?id=com.primerworldapps.brainbreak</item>
+	    <item>https://play.google.com/store/apps/details?id=com.softvit.vitacall</item>	    
+	    <item>http://suit-up-primer.blogspot.com/</item>
+	    <item>https://vk.com/liveindroid</item>
+	</string-array>
+	
+	<string name="rate_link">https://play.google.com/store/apps/details?id=com.primerworldapps.truthgame</string>
+	
     <string-array name="blue_questions">
         ﻿<item>Есть ли у вас конкретная цель в жизни?</item>
 		<item>Какие ошибки допустили родители в вашем воспитании?</item>

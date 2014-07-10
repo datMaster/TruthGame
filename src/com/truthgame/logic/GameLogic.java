@@ -6,6 +6,7 @@ import android.app.Activity;
 import android.app.Dialog;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
+import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
@@ -20,6 +21,7 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.truthgame.Constants;
 import com.truthgame.R;
 import com.truthgame.holders.MainActivityHolder;
 import com.truthgame.holders.QuestionHolder;
@@ -36,7 +38,6 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	private Dialog dialog;
 	private int cardID;
 	private QuestionMaker questionMaker;
-	private WindowManager.LayoutParams layoutParams;
 	
 	public GameLogic(Activity activ, View rootView) {
 		this.activity = activ;
@@ -59,7 +60,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.tvActionText = (TextView)rootView.findViewById(R.id.textView_action);
 		viewHolder.imgVolchock.setOnClickListener(this);
 		
-		dialog();
+		dialogInit();
 		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text);
 		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
 		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_ok);
@@ -70,13 +71,14 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.okButton.setOnClickListener(this);
 		viewHolder.cancelButton.setOnClickListener(this);
 		
-		layoutParams = new WindowManager.LayoutParams();
+		WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
 	    layoutParams.copyFrom(dialog.getWindow().getAttributes());
-	    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;	    
+	    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
+	    dialog.getWindow().setAttributes(layoutParams);
 	}
 	
 	private void reset() {
-		viewHolder.tvActionText.setText(activity.getResources().getString(R.string.action_begin_text));
+		viewHolder.tvActionText.setText(activity.getString(R.string.action_begin_text));
 		viewHolder.layBottom.setBackgroundResource(R.drawable.img_bg_bottom);
 	}
 
@@ -88,32 +90,42 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			viewHolder.imgVolchock.startAnimation(animationVolchock);
 			break;
 		case R.id.button_ok:
-			// крутить волчок
 			dialog.dismiss();
 			reset();
 			break;
 		case R.id.button_cancel:
-			// ответить онлайн
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(Intent.ACTION_SEND);
-			sendIntent.putExtra(Intent.EXTRA_TEXT, "lsls");
+			sendIntent.putExtra(Intent.EXTRA_TEXT, 
+					activity.getString(R.string.online_answer) 
+					+ " " + viewHolder.tvQuestion.getText().toString() 
+					+ "\n- ");
 			sendIntent.setType("text/plain");
 						
-			activity.startActivity(Intent.createChooser(sendIntent, "opacha"));						
+			activity.startActivity(Intent.createChooser(sendIntent, activity.getString(R.string.send_via)));						
 			break;					
 		}
 	}
 	
 
 	@Override
+	public boolean onKeyDown(int keyCode, KeyEvent event) {
+	    if ((keyCode == KeyEvent.KEYCODE_BACK)) {
+	        dialog.dismiss();
+	    	reset();
+	    }
+	    return super.onKeyDown(keyCode, event);
+	}
+	
+	@Override
 	public void onAnimationStart(Animation animation) {
-		viewHolder.tvActionText.setText(activity.getResources().getString(R.string.action_progress_text));
+		viewHolder.tvActionText.setText(activity.getString(R.string.action_progress_text));
 	}
 
 
 	@Override
 	public void onAnimationEnd(Animation animation) {
-		cardID = random.nextInt(30) / 10;		
+		cardID = random.nextInt(Constants.MAX_QUESTION_RANDOM) / Constants.QUESTION_RANDOM_DIV;		
 		viewHolder.tvActionText.setText(actionsSequences[cardID]);
 		switch (cardID) {
 		case 0:								
@@ -153,19 +165,19 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			}			
 			@Override
 			public void onAnimationEnd(Animation animation) {
-				dialogSetQuestionText(questionMaker.getQuestion(cardID));
-				dialog.getWindow().setAttributes(layoutParams);
+				dialogSetQuestionText(questionMaker.getQuestion(cardID));				
 				dialog.show();						
 			}
 		});
 	}
 		
-	public void dialog() {
+	public void dialogInit() {
 	    dialog = new Dialog(activity);
 	    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-	    dialog.setContentView(R.layout.question_layout);
-	    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));
-	    
+	    dialog.setContentView(R.layout.question_layout);	
+	    dialog.setCancelable(false);
+	    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));		    
+		dialog.getWindow().getAttributes().windowAnimations = R.style.QuestionDialogAnimation;
 	}
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {

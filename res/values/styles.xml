@@ -28,6 +28,11 @@
     <item name="android:backgroundDimEnabled">false</item>
   </style>
       
+   
+
+    <style name="QuestionDialogAnimation">
+        <item name="android:windowEnterAnimation">@anim/show_dialog</item>        
+    </style>
 
 		
 </resources>
