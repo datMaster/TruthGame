@@ -21,7 +21,6 @@ import android.widget.TextView;
 public class MoreListAdapter extends BaseAdapter implements OnClickListener {
 
 	private Activity activity;
-	private MoreViewHolder holder;
 	private ArrayList<MoreViewHolder> holdersList;
 	private LayoutInflater inflater;
 	private CharSequence[] titles;

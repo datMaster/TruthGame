@@ -11,9 +11,8 @@
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
-	<uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
-    
-    
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+
     <application
         android:allowBackup="true"
         android:icon="@drawable/icon"
@@ -39,6 +38,10 @@
         <activity
             android:name="com.truthgame.LoginActivity"
             android:label="@string/title_activity_login" >
+        </activity>
+        <activity
+            android:name="com.truthgame.ProfileActivity"
+            android:label="@string/title_activity_profile" >
         </activity>
     </application>
 

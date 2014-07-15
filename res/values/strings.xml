@@ -22,7 +22,6 @@
     <string name="online_answer">Игра в правду на Андроид http://goo.gl/myifN\nМой ответ на вопрос:</string>
     <string name="send_via">Ответить в:</string>
     <string name="rate_button">Оценить игру</string>
-    
     <string name="connection">Авторизация</string>
     <string name="connecting_auth">Подключение...</string>
     <string name="welcome">Приветствие!</string>
@@ -31,6 +30,8 @@
     <string name="disconnected">Отключено</string>
     <string name="error_code">Error code:</string>
     <string name="logout">Выйти</string>
+    <string name="profile">Профиль</string>
+    <string name="loading">Загрузка аватара...</string>
 
     <string-array name="actions">
         <item name="action_yellow">Выпал желтый цвет!</item>
@@ -81,7 +82,7 @@
     <string name="rate_link">https://play.google.com/store/apps/details?id=com.primerworldapps.truthgame</string>
 
     <string-array name="blue_questions">
-        ﻿        <item>Есть ли у вас конкретная цель в жизни?</item>
+        ﻿                <item>Есть ли у вас конкретная цель в жизни?</item>
         <item>Какие ошибки допустили родители в вашем воспитании?</item>
         <item>В детстве вы отказывались дружить с толстыми или некрасивыми детьми?</item>
         <item>Есть ли у вас какой-либо секрет от родителей? Почему вы что-то от них до сих пор скрываете?</item>
@@ -213,5 +214,6 @@
     </string-array>
 
     <string name="title_activity_login">LoginActivity</string>
+    <string name="title_activity_profile">ProfileActivity</string>
 
 </resources>

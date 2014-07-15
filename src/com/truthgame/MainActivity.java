@@ -75,7 +75,7 @@ public class MainActivity extends ActionBarActivity implements
 		ParseAnalytics.trackAppOpened(getIntent());
 		if (ParseUser.getCurrentUser() == null) {
 			startActivity(new Intent(this, LoginActivity.class));
-		}
+		}		
 
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -103,11 +103,19 @@ public class MainActivity extends ActionBarActivity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.logout) {
+		
+		switch (id) {
+		case R.id.logout: 
 			ParseUser.logOut();
 			startActivity(new Intent(this, LoginActivity.class));
-			return true;
-		}
+			break;
+		case R.id.profile:
+			startActivity(new Intent(this, ProfileActivity.class));
+			break;
+
+		default:
+			break;
+		}		
 		return super.onOptionsItemSelected(item);
 	}
 

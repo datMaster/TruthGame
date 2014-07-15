@@ -118,7 +118,7 @@ public class LoginActivity extends Activity implements
 		}
 	}
 
-	protected void signIn() {
+	protected void signIn() {		
 		ParseUser.logInInBackground(plusClient.getCurrentPerson()
 				.getDisplayName(), "my-pass", new LogInCallback() {
 			public void done(ParseUser user, ParseException e) {
