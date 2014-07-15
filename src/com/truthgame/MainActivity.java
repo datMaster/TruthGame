@@ -2,6 +2,9 @@ package com.truthgame;
 
 import java.util.Locale;
 
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
 import com.truthgame.fragments.MoreFragment;
 import com.truthgame.fragments.Rulesfragment;
 import com.truthgame.logic.GameLogic;
@@ -12,6 +15,7 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.view.LayoutInflater;
@@ -66,6 +70,13 @@ public class MainActivity extends ActionBarActivity implements
 					}
 				});
 
+		Parse.initialize(this, "k3PVsuxRT0GLMO49CnQrAh20b430Ay9XHjZ3ZHZg",
+				"ZZDK5LfyV6ZmBzO1QmzOe67fKjweitQ4lsATQiFd");
+		ParseAnalytics.trackAppOpened(getIntent());
+		if (ParseUser.getCurrentUser() == null) {
+			startActivity(new Intent(this, LoginActivity.class));
+		}
+
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
 			// Create a tab with text corresponding to the page title defined by
@@ -92,9 +103,11 @@ public class MainActivity extends ActionBarActivity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		if (id == R.id.action_settings) {
+		if (id == R.id.logout) {
+			ParseUser.logOut();
+			startActivity(new Intent(this, LoginActivity.class));
 			return true;
-		}		
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -181,31 +194,32 @@ public class MainActivity extends ActionBarActivity implements
 
 		@Override
 		public View onCreateView(LayoutInflater inflater, ViewGroup container,
-				Bundle savedInstanceState) {			
+				Bundle savedInstanceState) {
 			View rootView = null;
 			switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
 			case 1: {
-				rootView = inflater.inflate(R.layout.fragment_main, container, false);
+				rootView = inflater.inflate(R.layout.fragment_main, container,
+						false);
 				GameLogic gameLogic = new GameLogic(getActivity(), rootView);
 				break;
-				}
+			}
 			case 2: {
-				rootView = inflater.inflate(R.layout.fragment_rules, container, false);
-				Rulesfragment rulesFragment = new Rulesfragment(getActivity(), rootView);
+				rootView = inflater.inflate(R.layout.fragment_rules, container,
+						false);
+				Rulesfragment rulesFragment = new Rulesfragment(getActivity(),
+						rootView);
 				break;
-				}
+			}
 			case 3: {
-				rootView = inflater.inflate(R.layout.fragment_more, container, false);
-				MoreFragment moreFragment = new MoreFragment(getActivity(), rootView);
+				rootView = inflater.inflate(R.layout.fragment_more, container,
+						false);
+				MoreFragment moreFragment = new MoreFragment(getActivity(),
+						rootView);
 				break;
-				}
+			}
 			default:
 				break;
 			}
-//			TextView textView = (TextView) rootView
-//					.findViewById(R.id.section_label);
-//			textView.setText(Integer.toString(getArguments().getInt(
-//					ARG_SECTION_NUMBER)));
 			return rootView;
 		}
 	}
