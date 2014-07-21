@@ -32,6 +32,8 @@
     <string name="logout">Выйти</string>
     <string name="profile">Профиль</string>
     <string name="loading">Загрузка аватара...</string>
+    <string name="game_title">Игра в правду</string>
+    <string name="button_leter">Позже</string>
 
     <string-array name="actions">
         <item name="action_yellow">Выпал желтый цвет!</item>

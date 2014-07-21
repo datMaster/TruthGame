@@ -17,6 +17,7 @@ import android.content.IntentSender;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
+import android.widget.Button;
 import android.widget.Toast;
 
 public class LoginActivity extends Activity implements
@@ -26,6 +27,7 @@ public class LoginActivity extends Activity implements
 	private ParseUser user;
 	private SignInButton loginButton;
 	private ProgressDialog progressDialog;
+	private Button button_leter;
 
 	public final int REQUEST_CODE_RESOLVE_ERR = 9000;
 	private final int CANCEL = 0;
@@ -156,6 +158,7 @@ public class LoginActivity extends Activity implements
 
 	private void screenInit() {
 		loginButton = (SignInButton) findViewById(R.id.btn_sign_in);
+//		button_leter = (Button) findViewById(R.id.button_leter);
 		loginButton.setOnClickListener(new View.OnClickListener() {
 			@Override
 			public void onClick(View v) {
