@@ -84,7 +84,7 @@
     <string name="rate_link">https://play.google.com/store/apps/details?id=com.primerworldapps.truthgame</string>
 
     <string-array name="blue_questions">
-        ﻿                <item>Есть ли у вас конкретная цель в жизни?</item>
+﻿        <item>Есть ли у вас конкретная цель в жизни?</item>
         <item>Какие ошибки допустили родители в вашем воспитании?</item>
         <item>В детстве вы отказывались дружить с толстыми или некрасивыми детьми?</item>
         <item>Есть ли у вас какой-либо секрет от родителей? Почему вы что-то от них до сих пор скрываете?</item>

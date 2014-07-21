@@ -2,12 +2,6 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.truthgame.MainActivity" >
-
-    <item
-        android:id="@+id/logout"
-        android:orderInCategory="100"
-        android:title="@string/logout"
-        app:showAsAction="never"/>
     
     <item
         android:id="@+id/profile"        

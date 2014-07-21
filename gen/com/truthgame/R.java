@@ -1516,7 +1516,7 @@ containing a value of this type.
         public static final int action_menu_divider=0x7f070028;
         public static final int action_menu_presenter=0x7f070029;
         public static final int action_mode_close_button=0x7f070036;
-        public static final int action_settings=0x7f070075;
+        public static final int action_settings=0x7f070074;
         public static final int activity_chooser_view_content=0x7f070037;
         public static final int always=0x7f07001e;
         public static final int beginning=0x7f070023;
@@ -1560,7 +1560,6 @@ containing a value of this type.
         public static final int linearLayout_buttons=0x7f070070;
         public static final int listMode=0x7f070014;
         public static final int list_item=0x7f07003b;
-        public static final int logout=0x7f070073;
         public static final int match_parent=0x7f07000c;
         public static final int middle=0x7f070024;
         public static final int middle_frame=0x7f070055;
@@ -1570,7 +1569,7 @@ containing a value of this type.
         public static final int normal=0x7f070001;
         public static final int pager=0x7f070050;
         public static final int production=0x7f070007;
-        public static final int profile=0x7f070074;
+        public static final int profile=0x7f070073;
         public static final int progress_circular=0x7f07002a;
         public static final int progress_horizontal=0x7f07002b;
         public static final int question_lay=0x7f07006c;
@@ -1686,7 +1685,6 @@ containing a value of this type.
     public static final class menu {
         public static final int main=0x7f0d0000;
         public static final int profile=0x7f0d0001;
-        public static final int question=0x7f0d0002;
     }
     public static final class string {
         /**  Content description for the action bar "home" affordance. [CHAR LIMIT=NONE] 

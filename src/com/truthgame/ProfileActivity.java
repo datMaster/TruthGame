@@ -4,6 +4,7 @@ import com.truthgame.fragments.ProfileFragment;
 
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
+import android.app.Activity;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.Menu;
@@ -20,7 +21,7 @@ public class ProfileActivity extends ActionBarActivity {
 
 		if (savedInstanceState == null) {
 			getSupportFragmentManager().beginTransaction()
-					.add(R.id.container, new PlaceholderFragment()).commit();
+					.add(R.id.container, new PlaceholderFragment(this)).commit();
 		}
 	}
 
@@ -49,7 +50,10 @@ public class ProfileActivity extends ActionBarActivity {
 //	 */
 	public static class PlaceholderFragment extends Fragment {
 
-		public PlaceholderFragment() {
+		public Activity activity;
+		
+		public PlaceholderFragment(Activity activity) {
+			this.activity = activity;
 		}
 
 		@Override
@@ -57,7 +61,7 @@ public class ProfileActivity extends ActionBarActivity {
 				Bundle savedInstanceState) {
 			View rootView = inflater.inflate(R.layout.fragment_profile,
 					container, false);
-			new ProfileFragment(rootView);
+			new ProfileFragment(activity, rootView);
 			return rootView;
 		}
 	}

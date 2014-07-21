@@ -70,8 +70,8 @@ public class MainActivity extends ActionBarActivity implements
 					}
 				});
 
-		Parse.initialize(this, "k3PVsuxRT0GLMO49CnQrAh20b430Ay9XHjZ3ZHZg",
-				"ZZDK5LfyV6ZmBzO1QmzOe67fKjweitQ4lsATQiFd");
+		Parse.initialize(this, "g39Xh682yGrw6CLBvQTsyFJPXdCr7oFbvxB33aBl",
+				"VG7Hpcep5cDPGoFdpASiTZVbsUgwPvkmrJII70i3");
 		ParseAnalytics.trackAppOpened(getIntent());
 		if (ParseUser.getCurrentUser() == null) {
 			startActivity(new Intent(this, LoginActivity.class));
@@ -104,11 +104,7 @@ public class MainActivity extends ActionBarActivity implements
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		
-		switch (id) {
-		case R.id.logout: 
-			ParseUser.logOut();
-			startActivity(new Intent(this, LoginActivity.class));
-			break;
+		switch (id) {		
 		case R.id.profile:
 			if(ParseUser.getCurrentUser() != null)
 				startActivity(new Intent(this, ProfileActivity.class));
