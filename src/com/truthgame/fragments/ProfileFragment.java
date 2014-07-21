@@ -1,6 +1,7 @@
 package com.truthgame.fragments;
 
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -16,6 +17,7 @@ public class ProfileFragment {
 	private TextView tvUserMail;
 	private TextView tvLoading;
 	private ImageView avatar;
+	private Button logout;
 	
 	public ProfileFragment(View rootView) {	
 		this.rootView = rootView;		
@@ -28,6 +30,7 @@ public class ProfileFragment {
 		tvUserMail = (TextView) rootView.findViewById(R.id.textView_user_mail);
 		tvLoading = (TextView) rootView.findViewById(R.id.textView_loading);
 		avatar = (ImageView) rootView.findViewById(R.id.imageView_avatar);
+		logout = (Button) rootView.findViewById(R.id.button_logout);
 		
 		tvUserName.setText(ParseUser.getCurrentUser().getUsername());
 		tvUserMail.setText(ParseUser.getCurrentUser().getEmail());		

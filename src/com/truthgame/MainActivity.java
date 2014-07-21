@@ -110,7 +110,8 @@ public class MainActivity extends ActionBarActivity implements
 			startActivity(new Intent(this, LoginActivity.class));
 			break;
 		case R.id.profile:
-			startActivity(new Intent(this, ProfileActivity.class));
+			if(ParseUser.getCurrentUser() != null)
+				startActivity(new Intent(this, ProfileActivity.class));
 			break;
 
 		default:

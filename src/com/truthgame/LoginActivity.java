@@ -3,6 +3,7 @@ package com.truthgame;
 import com.google.android.gms.common.ConnectionResult;
 import com.google.android.gms.common.GooglePlayServicesClient;
 import com.google.android.gms.common.SignInButton;
+import com.google.android.gms.internal.ca;
 import com.google.android.gms.plus.PlusClient;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
@@ -12,6 +13,8 @@ import com.truthgame.R;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
+import android.content.DialogInterface;
+import android.content.DialogInterface.OnClickListener;
 import android.content.Intent;
 import android.content.IntentSender;
 import android.os.Bundle;
@@ -22,7 +25,7 @@ import android.widget.Toast;
 
 public class LoginActivity extends Activity implements
 		GooglePlayServicesClient.ConnectionCallbacks,
-		GooglePlayServicesClient.OnConnectionFailedListener {
+		GooglePlayServicesClient.OnConnectionFailedListener, android.view.View.OnClickListener{
 
 	private ParseUser user;
 	private SignInButton loginButton;
@@ -158,13 +161,9 @@ public class LoginActivity extends Activity implements
 
 	private void screenInit() {
 		loginButton = (SignInButton) findViewById(R.id.btn_sign_in);
-//		button_leter = (Button) findViewById(R.id.button_leter);
-		loginButton.setOnClickListener(new View.OnClickListener() {
-			@Override
-			public void onClick(View v) {
-				startGooglePlus();
-			}
-		});
+		button_leter = (Button) findViewById(R.id.button_leter);
+		loginButton.setOnClickListener(this);
+		button_leter.setOnClickListener(this);
 	}
 
 	protected void startGooglePlus() {
@@ -176,5 +175,21 @@ public class LoginActivity extends Activity implements
 
 		}
 	}
+
+	@Override
+	public void onClick(View v) {
+		switch (v.getId()) {
+		case R.id.button_leter:			
+			finish();
+			break;
+
+		case R.id.btn_sign_in:
+			startGooglePlus();
+			break;
+		}
+		
+	}
+
+	
 
 }
