@@ -4,7 +4,7 @@
     android:layout_width="wrap_content"
     android:layout_height="wrap_content"
     android:background="@drawable/blue_dialog_bg"
-    android:gravity="center_horizontal"
+    android:gravity="center"
     android:orientation="vertical" >
 
     <TextView
@@ -34,7 +34,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:maxWidth="50dp"
         android:scaleType="centerCrop" />
@@ -64,6 +63,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_gravity="right"
+            android:layout_marginLeft="5dp"
             android:layout_weight="1"
             android:background="@drawable/blue_button_rotate"
             android:minHeight="40dip"
