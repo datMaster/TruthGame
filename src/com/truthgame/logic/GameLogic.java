@@ -64,13 +64,14 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.imgVolchock.setOnClickListener(this);
 		
 		dialogInit();
-		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text);
-		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
-		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_ok);
-		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_cancel);
-		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
-		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card);		
-		viewHolder.relativeLayout = (RelativeLayout) dialog.findViewById(R.id.relativeLayout_question);
+		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text_upd);
+		viewHolder.bgFrame = (FrameLayout) dialog.findViewById(R.id.frameLayout_bg_upd);
+//		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
+		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_rotate_upd);
+		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_online_upd);
+//		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
+		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card_upd);		
+//		viewHolder.relativeLayout = (RelativeLayout) dialog.findViewById(R.id.relativeLayout_question);
 		viewHolder.okButton.setOnClickListener(this);
 		viewHolder.cancelButton.setOnClickListener(this);
 		
@@ -96,11 +97,11 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			}
 						
 			break;
-		case R.id.button_ok:
+		case R.id.button_rotate_upd:
 			dialog.dismiss();
 			reset();
 			break;
-		case R.id.button_cancel:
+		case R.id.button_online_upd:
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(Intent.ACTION_SEND);
 			sendIntent.putExtra(Intent.EXTRA_TEXT, 
@@ -181,14 +182,14 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	public void dialogInit() {
 	    dialog = new Dialog(activity);
 	    dialog.requestWindowFeature(Window.FEATURE_NO_TITLE);
-	    dialog.setContentView(R.layout.question_layout);	
+	    dialog.setContentView(R.layout.question_layout_upd);	
 	    dialog.setCancelable(false);
 	    dialog.getWindow().setBackgroundDrawable(new ColorDrawable(android.graphics.Color.TRANSPARENT));		    
 		dialog.getWindow().getAttributes().windowAnimations = R.style.QuestionDialogAnimation;
 	}
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {
-		viewHolder.tvTitle.setText(questionHolder.title);
+//		viewHolder.tvTitle.setText(questionHolder.title);
 		if(questionHolder.text == null) {
 			viewHolder.tvQuestion.setVisibility(View.GONE);
 		}
@@ -197,7 +198,8 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			viewHolder.tvQuestion.setText(questionHolder.text);			
 		}
 				
-		viewHolder.relativeLayout.setBackground(questionHolder.color);
+//		viewHolder.relativeLayout.setBackground(questionHolder.color);
+		viewHolder.bgFrame.setBackgroundResource(questionHolder.color);
 
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);

@@ -60,28 +60,28 @@ public class QuestionMaker {
 			holder.text = activity.getResources().getString(
 					R.string.white_question);
 		}
-		ShapeMaker shape = new ShapeMaker(activity, color);
+//		ShapeMaker shape = new ShapeMaker(activity, color);
 		holder.title = activity.getResources().getString(title);
-		holder.color =  shape.getGradient();
+		holder.color = color; //shape.getGradient();
 	}
 	
 	public QuestionHolder getQuestion(int color) {
 				
 		switch(color) {
 			case Constants.YELLOW_CARD : {
-				getQuestionAndTitle(yellowQuestions, R.string.yellow_question_title, R.color.yellow_question_color);				
+				getQuestionAndTitle(yellowQuestions, R.string.yellow_question_title, R.drawable.yellow_dialog_bg);// R.color.yellow_question_color);				
 			}
 				break;
 			case Constants.RED_CARD : {
-				getQuestionAndTitle(redQuestions, R.string.red_question_title, R.color.red_question_color);				
+				getQuestionAndTitle(redQuestions, R.string.red_question_title, R.drawable.red_dialog_bg);// R.color.red_question_color);				
 			}
 				break;
 			case Constants.BLUE_CARD : {
-				getQuestionAndTitle(blueQuestions, R.string.blue_question_title, R.color.blue_question_color);				
+				getQuestionAndTitle(blueQuestions, R.string.blue_question_title, R.drawable.blue_dialog_bg);// R.color.blue_question_color);				
 			}
 			break;			
 			case Constants.WHITE_CARD : {
-				getQuestionAndTitle(null, R.string.white_question_title, R.color.white_question_color);				
+				getQuestionAndTitle(null, R.string.white_question_title, R.drawable.grey_dialog_bg);//R.color.white_question_color);				
 			}
 			break;
 		}
