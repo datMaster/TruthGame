@@ -8,4 +8,5 @@ public class QuestionHolder {
 	public int color;
 	public Drawable card;
 	public boolean isJocker = false;
+	public int buttonColor;
 }

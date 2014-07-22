@@ -20,7 +20,7 @@ public class MainActivityHolder {
 	public TextView tvQuestion = null;
 	public LinearLayout buttonsLayout = null;
 	public ImageView cardImage = null;	
-	public FrameLayout frLayoutBg = null;
+	public LinearLayout lnLayoutBg = null;
 		
 	public RelativeLayout relativeLayout = null;
 }

@@ -65,8 +65,8 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		
 		dialogInit();
 		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text_upd);
-		viewHolder.frLayoutBg = (FrameLayout) dialog.findViewById(R.id.frameLayout_bg_upd);
-//		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
+		viewHolder.lnLayoutBg = (LinearLayout) dialog.findViewById(R.id.LinearLayout_bg_upd);
+		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title_upd);
 		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_rotate_upd);
 		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_online_upd);
 //		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
@@ -189,7 +189,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	}
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {
-//		viewHolder.tvTitle.setText(questionHolder.title);
+		viewHolder.tvTitle.setText(questionHolder.title);
 		if(questionHolder.text == null) {
 			viewHolder.tvQuestion.setVisibility(View.GONE);
 		}
@@ -199,7 +199,8 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		}
 				
 //		viewHolder.relativeLayout.setBackground(questionHolder.color);
-		viewHolder.frLayoutBg.setBackgroundResource(questionHolder.color);
+		viewHolder.lnLayoutBg.setBackgroundResource(questionHolder.color);
+		viewHolder.okButton.setBackgroundResource(questionHolder.buttonColor);
 
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);

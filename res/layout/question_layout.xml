@@ -19,7 +19,7 @@
             android:paddingBottom="2dp" >
 
             <TextView
-                android:id="@+id/textView_title"
+                android:id="@+id/textView_title_upd"
                 android:layout_width="fill_parent"
                 android:layout_height="wrap_content"
                 android:gravity="center_horizontal"
