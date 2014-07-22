@@ -9,7 +9,7 @@
     <string name="rules_types">Типы карт</string>
     <string name="rules_chips">Фишки</string>
     <string name="action_settings">Settings</string>
-    <string name="rules_steps_text"> 1)Игроки садятся в круг и по очереди крутят волчок\n2)Согласно выпавшему цвету, игрок отвечает на вопрос с открывшейся карты\n3)Вопрос с карты задается человеку, сидящему слева</string>
+    <string name="rules_steps_text"> 1) Игроки садятся в круг и по очереди крутят волчок\n2) Согласно выпавшему цвету, игрок отвечает на вопрос с открывшейся карты\n3) Вопрос с карты задается человеку, сидящему слева</string>
     <string name="rules_text">Желтая колода - неловкие вопросы\nКрасная колода - откровенные вопросы\nСиняя колода - вопросы \"на подумать\"\nБелая колода - игрок задает вопрос от себя\nВнимание: цвет карты генерируется случайным образом!</string>
     <string name="rules_chips_text">Иногда на картах будут появляться картинки с дополнительными действиями: 
         Джокер - игрок должен открыть книгу/газету/сайт/журнал и задать вопрос, 
@@ -19,7 +19,7 @@
         которому переадресовали вопрос</string>
     <string name="action_begin_text">Нажмите на волчок\nчтобы запустить его!</string>
     <string name="action_progress_text">Волчок крутится...</string>
-    <string name="online_answer">Игра в правду на Андроид http://goo.gl/myifN\nМой ответ на вопрос:</string>
+    <string name="online_answer">#TruthGame Игра в правду на Андроид http://goo.gl/myifN\nМой ответ на вопрос:</string>
     <string name="send_via">Ответить в:</string>
     <string name="rate_button">Оценить игру</string>
     <string name="connection">Авторизация</string>
@@ -62,39 +62,39 @@
     <string name="white_question_title">Свободый вопрос</string>
     <string name="white_question">Задайте вопрос от себя!</string>
 
-    <string-array name="more_titles">        
+    <string-array name="more_titles">
         <item>Quezzle</item>
         <item>Top Quotes</item>
         <item>Cartoon Quotes</item>
-        <item>Brain Break</item>        
-        <item>Наша группа Вконтакте</item>
+        <item>Brain Break</item>
+        <item>Skylion Apps Вконтакте</item>
     </string-array>
     <string-array name="more_descr">
         <item>Приложение соединяет Вас с теми, кто рядом, и лучшее его применение - найти компанию в людном месте, на ивенте, в ресторане в университете, клубе или на концерте.</item>
         <item>Лучшие цитаты из Ваших любимых сериалов абсолютно бесплатно и без подключения к интернету</item>
         <item>Чтение цитат из любимых мультсериалов без подключения к интернету</item>
-        <item>Минимизируйте стресс и улучшайте свою производительность</item>        
-        <item>Все про Андроид здесь. Множество обзоров, подарков и полезной информации. Подписывайтесь!</item>
+        <item>Минимизируйте стресс и улучшайте свою производительность</item>
+        <item>Официальная группа разработчика Вконтакте</item>
     </string-array>
     <string-array name="more_img">
         <item>@drawable/quezzle</item>
         <item>@drawable/topquotes</item>
         <item>@drawable/cartoon</item>
-        <item>@drawable/brainbreak</item>        
+        <item>@drawable/brainbreak</item>
         <item>@drawable/android</item>
     </string-array>
     <string-array name="more_links">
         <item>https://play.google.com/store/apps/details?id=com.skylion.quezzle</item>
         <item>https://play.google.com/store/apps/details?id=top.quotes.pkg</item>
         <item>https://play.google.com/store/apps/details?id=com.skylion.cartoon</item>
-        <item>https://play.google.com/store/apps/details?id=com.primerworldapps.brainbreak</item>        
+        <item>https://play.google.com/store/apps/details?id=com.primerworldapps.brainbreak</item>
         <item>https://vk.com/top_quotes_apps</item>
     </string-array>
 
     <string name="rate_link">https://play.google.com/store/apps/details?id=com.primerworldapps.truthgame</string>
 
     <string-array name="blue_questions">
-﻿        <item>Есть ли у вас конкретная цель в жизни?</item>
+﻿                  <item>Есть ли у вас конкретная цель в жизни?</item>
         <item>Какие ошибки допустили родители в вашем воспитании?</item>
         <item>В детстве вы отказывались дружить с толстыми или некрасивыми детьми?</item>
         <item>Есть ли у вас какой-либо секрет от родителей? Почему вы что-то от них до сих пор скрываете?</item>
@@ -234,7 +234,7 @@
         <item>Занимались ли вы сексом на природе?</item>
         <item>Были ли вы в том самом помещении, где кто-то в это время занимался сексом?</item>
         <item>Занимались ли вы сексом с кем-то, кто старше вас на более, чем 5 лет? Сколько лет было ей/ему?</item>
-        <item>Занимались ли вы сексом с кем-то, кто младше вас на более, чем 5 лет? Сколько лет было ей/ему?</item>        
+        <item>Занимались ли вы сексом с кем-то, кто младше вас на более, чем 5 лет? Сколько лет было ей/ему?</item>
         <item>Играли ли вы в какую-либо игру на раздевание?</item>
         <item>Ходили ли вы голышом в людном месте?</item>
         <item>Занимались ли вы садизмом/мазохизмом в сексе?</item>
@@ -244,14 +244,14 @@
         <item>Занимались ли вы анальным сексом?</item>
         <item>Какие самые необычные позы в сексе вы пробовали? Опишите их</item>
         <item>Что вы кричите (делаете) во время оргазма?</item>
-        <item>С кем из присутствующих (или общих с ними знакомых) у вас был секс/петтинг/флирт?</item>        
+        <item>С кем из присутствующих (или общих с ними знакомых) у вас был секс/петтинг/флирт?</item>
     </string-array>
-    <string-array name="yellow_questions">        
+    <string-array name="yellow_questions">
         <item>С кем из присутствующих людей вы бы получили наибольшее удовольствие от совместного просмотра порно?</item>
         <item>Какая была самая необычная реакция на оргазм, которую вы наблюдали?</item>
         <item>Обсуждаете ли вы своих сексуальных партнёров с друзьями? О чём вы говорите?</item>
-        <item>Делали ли вы что-то, о чём сожалеете?</item>        
-        <item>Арестовывали ли вас?</item>        
+        <item>Делали ли вы что-то, о чём сожалеете?</item>
+        <item>Арестовывали ли вас?</item>
         <item>Лгали ли вы кому-нибудь о том, что любите его/её?</item>
         <item>Были ли вы влюблены в двух человек одновременно?</item>
         <item>Лишали ли вы кого-то девственности?</item>
