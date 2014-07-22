@@ -49,8 +49,7 @@ public class MainActivity extends ActionBarActivity implements
 		
 		BugSenseHandler.initAndStartSession(this, "6ea558de");
 		AdBuddiz.setPublisherKey("db8ab989-a190-463a-947a-741aaeb75f6f");
-		AdBuddiz.cacheAds(this);
-		AdBuddiz.showAd(this);
+		AdBuddiz.cacheAds(this);		
 		
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
