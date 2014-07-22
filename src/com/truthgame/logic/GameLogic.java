@@ -65,7 +65,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		
 		dialogInit();
 		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text_upd);
-		viewHolder.bgFrame = (FrameLayout) dialog.findViewById(R.id.frameLayout_bg_upd);
+		viewHolder.frLayoutBg = (FrameLayout) dialog.findViewById(R.id.frameLayout_bg_upd);
 //		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title);
 		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_rotate_upd);
 		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_online_upd);
@@ -199,7 +199,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		}
 				
 //		viewHolder.relativeLayout.setBackground(questionHolder.color);
-		viewHolder.bgFrame.setBackgroundResource(questionHolder.color);
+		viewHolder.frLayoutBg.setBackgroundResource(questionHolder.color);
 
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);
