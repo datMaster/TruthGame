@@ -1,6 +1,7 @@
 package com.truthgame.fragments;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
@@ -8,7 +9,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.parse.ParseUser;
-import com.truthgame.R;
+import com.truthgame.LoginActivity;
+import com.primerworldapps.truthgame.R;
 import com.truthgame.utils.DownloadImage;
 
 public class ProfileFragment implements OnClickListener{
@@ -50,6 +52,7 @@ public class ProfileFragment implements OnClickListener{
 	public void onClick(View v) {
 		ParseUser.logOut();
 		activity.finish();
+		activity.startActivity(new Intent(activity, LoginActivity.class));
 	}	
 }
 

@@ -1,6 +1,6 @@
 package com.truthgame.fragments;
 
-import com.truthgame.R;
+import com.primerworldapps.truthgame.R;
 import com.truthgame.adapters.MoreListAdapter;
 
 import android.app.Activity;

@@ -2,7 +2,7 @@ package com.truthgame.logic;
 
 import java.util.Random;
 
-import com.truthgame.R;
+import com.primerworldapps.truthgame.R;
 import com.truthgame.holders.QuestionHolder;
 import com.truthgame.Constants;
 
@@ -31,6 +31,7 @@ public class QuestionMaker {
 		switch (id) {
 		case Constants.JOKER_CARD:
 			holder.card = activity.getResources().getDrawable(R.drawable.action_joker);
+			holder.isJocker = true;
 			break;
 		case Constants.PLUS_ONE_CARD:
 			holder.card = activity.getResources().getDrawable(R.drawable.action_more);
@@ -47,8 +48,14 @@ public class QuestionMaker {
 	private void getQuestionAndTitle(CharSequence[] questions, int title, int color) {
 		getCard();
 		if (questions != null) {
-			int index = random.nextInt(questions.length - 1);
-			holder.text = questions[index].toString();
+			if (!holder.isJocker) {
+				int index = random.nextInt(questions.length - 1);
+				holder.text = questions[index].toString();				
+			}
+			else {
+				holder.isJocker = false;
+				holder.text = null;
+			}
 		} else {
 			holder.text = activity.getResources().getString(
 					R.string.white_question);

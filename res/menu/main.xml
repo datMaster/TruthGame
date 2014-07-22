@@ -6,6 +6,6 @@
     <item
         android:id="@+id/profile"        
         android:title="@string/profile"
-        app:showAsAction="never"/>
+        app:showAsAction="always"/>
 
 </menu>

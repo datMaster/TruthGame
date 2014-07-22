@@ -3,6 +3,6 @@
     android:id="@+id/ListView_more"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="@color/red_background" >
+    android:background="@drawable/clean_bg" >
 
 </ListView>

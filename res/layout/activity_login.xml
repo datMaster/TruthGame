@@ -1,40 +1,34 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/LinearLayout1"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#ffffff"
+    android:gravity="center"
+    android:orientation="vertical"
     tools:context="${packageName}.${activityClass}" >
 
-    <FrameLayout
+    <ImageView
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"
-        android:background="@drawable/high_def" >
+        android:layout_weight="1"
+        android:src="@drawable/high_def" />
 
-    </FrameLayout>
+    <com.google.android.gms.common.SignInButton
+        android:id="@+id/btn_sign_in"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="5dp"
+        android:paddingRight="5dp" >
+    </com.google.android.gms.common.SignInButton>
 
-     <com.google.android.gms.common.SignInButton
-         android:id="@+id/btn_sign_in"
-         android:layout_width="fill_parent"
-         android:layout_height="wrap_content"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentLeft="true"
-         android:paddingBottom="35dp"
-         android:paddingLeft="5dp"
-         android:paddingRight="5dp" >
+    <Button
+        android:id="@+id/button_leter"
+        style="?android:attr/buttonStyleSmall"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="2dp"
+        android:text="@string/button_leter" />
 
-     </com.google.android.gms.common.SignInButton>
-
-     <Button
-         android:id="@+id/button_leter"
-         style="?android:attr/buttonStyleSmall"
-         android:layout_width="wrap_content"
-         android:layout_height="35dp"
-         android:layout_alignParentBottom="true"
-         android:layout_alignParentRight="true"
-         android:layout_marginBottom="2dp"
-         android:layout_marginRight="5dp"
-         android:text="@string/button_leter" />
-
-</RelativeLayout>
+</LinearLayout>

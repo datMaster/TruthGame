@@ -1,14 +1,15 @@
 package com.truthgame;
 
 import java.util.Locale;
-
+import com.bugsense.trace.BugSenseHandler;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
+import com.primerworldapps.truthgame.R;
+import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 import com.truthgame.fragments.MoreFragment;
 import com.truthgame.fragments.Rulesfragment;
 import com.truthgame.logic.GameLogic;
-
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -45,7 +46,12 @@ public class MainActivity extends ActionBarActivity implements
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-
+		
+		BugSenseHandler.initAndStartSession(this, "6ea558de");
+		AdBuddiz.setPublisherKey("db8ab989-a190-463a-947a-741aaeb75f6f");
+		AdBuddiz.cacheAds(this);
+		AdBuddiz.showAd(this);
+		
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -104,10 +110,12 @@ public class MainActivity extends ActionBarActivity implements
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
 		
-		switch (id) {		
+		switch (id) {				
 		case R.id.profile:
 			if(ParseUser.getCurrentUser() != null)
 				startActivity(new Intent(this, ProfileActivity.class));
+			else
+				startActivity(new Intent(this, LoginActivity.class));
 			break;
 
 		default:
@@ -203,7 +211,7 @@ public class MainActivity extends ActionBarActivity implements
 			View rootView = null;
 			switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
 			case 1: {
-				rootView = inflater.inflate(R.layout.fragment_main, container,
+				rootView = inflater.inflate(R.layout.fragment_main_upd, container,
 						false);
 				GameLogic gameLogic = new GameLogic(getActivity(), rootView);
 				break;

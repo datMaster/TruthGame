@@ -9,7 +9,7 @@ import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
-import com.truthgame.R;
+import com.primerworldapps.truthgame.R;
 
 import android.app.Activity;
 import android.app.ProgressDialog;
@@ -44,9 +44,7 @@ public class LoginActivity extends Activity implements
 		setContentView(R.layout.activity_login);
 
 		progressDialog = new ProgressDialog(this);
-		plusClient = new PlusClient.Builder(this, this, this).setActions(
-				"http://schemas.google.com/AddActivity",
-				"http://schemas.google.com/BuyActivity").build();
+		plusClient = new PlusClient.Builder(this, this, this).build();
 		screenInit();
 	}
 

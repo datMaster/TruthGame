@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.truthgame"
+    package="com.primerworldapps.truthgame"
     android:versionCode="1"
     android:versionName="1.0" >
 
@@ -12,6 +12,7 @@
     <uses-permission android:name="android.permission.GET_ACCOUNTS" />
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />        
 
     <application
         android:allowBackup="true"
@@ -25,7 +26,8 @@
 
         <activity
             android:name="com.truthgame.MainActivity"
-            android:label="@string/game_title" >
+            android:label="@string/game_title"
+            android:screenOrientation="landscape">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -33,24 +35,31 @@
             </intent-filter>
         </activity>
         <activity
+            android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
+            android:theme="@android:style/Theme.Translucent" />
+
+        <activity
             android:name="com.truthgame.QuestionActivity"
             android:label="@string/title_activity_question" >
         </activity>
         <activity
             android:name="com.truthgame.LoginActivity"
-            android:label="@string/game_title" >
+            android:label="@string/game_title"
+            android:screenOrientation="landscape" >
         </activity>
         <activity
             android:name="com.truthgame.ProfileActivity"
-            android:label="@string/title_activity_profile" >
-        </activity>
+            android:label="@string/profile"
+            android:screenOrientation="landscape" >
+        </activity>                
         
-         <supports-screens
+    </application>
+    
+     <supports-screens
              android:largeScreens="true"
              android:normalScreens="true"
              android:smallScreens="true"
-             android:xlargeScreens="true" />
-        
-    </application>
+             android:xlargeScreens="true"
+             android:anyDensity="true" />
 
 </manifest>

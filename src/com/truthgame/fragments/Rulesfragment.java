@@ -1,6 +1,6 @@
 package com.truthgame.fragments;
 
-import com.truthgame.R;
+import com.primerworldapps.truthgame.R;
 
 import android.app.Activity;
 import android.content.Intent;

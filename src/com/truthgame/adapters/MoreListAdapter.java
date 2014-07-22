@@ -2,7 +2,7 @@ package com.truthgame.adapters;
 
 import java.util.ArrayList;
 
-import com.truthgame.R;
+import com.primerworldapps.truthgame.R;
 import com.truthgame.holders.MoreViewHolder;
 
 import android.app.Activity;

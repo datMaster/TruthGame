@@ -21,8 +21,9 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 import com.truthgame.Constants;
-import com.truthgame.R;
+import com.primerworldapps.truthgame.R;
 import com.truthgame.holders.MainActivityHolder;
 import com.truthgame.holders.QuestionHolder;
 
@@ -38,6 +39,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	private Dialog dialog;
 	private int cardID;
 	private QuestionMaker questionMaker;
+	private int questionCount;
 	
 	public GameLogic(Activity activ, View rootView) {
 		this.activity = activ;
@@ -49,15 +51,16 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		this.actionsSequences = this.activity.getResources().getTextArray(R.array.actions);
 		this.random = new Random();
 		this.questionMaker = new QuestionMaker(this.activity);
+		this.questionCount = 0;
 		setAnimationListener();
 		init();
 	}
 	
 	
 	private void init() {
-		viewHolder.imgVolchock = (ImageView)rootView.findViewById(R.id.imageView_volchok);	
-		viewHolder.layBottom = (FrameLayout)rootView.findViewById(R.id.bottom_frame);
-		viewHolder.tvActionText = (TextView)rootView.findViewById(R.id.textView_action);
+		viewHolder.imgVolchock = (ImageView)rootView.findViewById(R.id.imageView_volochok_upd);	
+		viewHolder.bgFrame = (FrameLayout)rootView.findViewById(R.id.frameLayout_bg);
+		viewHolder.tvActionText = (TextView)rootView.findViewById(R.id.textView_status_upd);
 		viewHolder.imgVolchock.setOnClickListener(this);
 		
 		dialogInit();
@@ -71,23 +74,27 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.okButton.setOnClickListener(this);
 		viewHolder.cancelButton.setOnClickListener(this);
 		
-		WindowManager.LayoutParams layoutParams = new WindowManager.LayoutParams();
-	    layoutParams.copyFrom(dialog.getWindow().getAttributes());
-	    layoutParams.width = WindowManager.LayoutParams.MATCH_PARENT;
-	    dialog.getWindow().setAttributes(layoutParams);
 	}
 	
 	private void reset() {
 		viewHolder.tvActionText.setText(activity.getString(R.string.action_begin_text));
-		viewHolder.layBottom.setBackgroundResource(R.drawable.img_bg_bottom);
+		viewHolder.bgFrame.setBackgroundResource(R.drawable.bground_main);
 	}
 
 
 	@Override
 	public void onClick(View v) {		
 		switch (v.getId()) {
-		case R.id.imageView_volchok:
-			viewHolder.imgVolchock.startAnimation(animationVolchock);
+		case R.id.imageView_volochok_upd:
+			if(questionCount == Constants.QUESTION_COUNT_RECLAM){
+				 AdBuddiz.showAd(activity);
+				 questionCount = 0;
+			}
+			else {
+				questionCount ++;
+				viewHolder.imgVolchock.startAnimation(animationVolchock);
+			}
+						
 			break;
 		case R.id.button_ok:
 			dialog.dismiss();
@@ -129,20 +136,20 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.tvActionText.setText(actionsSequences[cardID]);
 		switch (cardID) {
 		case 0:								
-			viewHolder.layBottom.startAnimation(animationSlectCard);			
-			viewHolder.layBottom.setBackgroundResource(R.drawable.card_yellow);
+			viewHolder.bgFrame.startAnimation(animationSlectCard);			
+			viewHolder.bgFrame.setBackgroundResource(R.drawable.yellow_bg);
 			break;
 		case 1:			
-			viewHolder.layBottom.startAnimation(animationSlectCard);
-			viewHolder.layBottom.setBackgroundResource(R.drawable.card_red);
+			viewHolder.bgFrame.startAnimation(animationSlectCard);
+			viewHolder.bgFrame.setBackgroundResource(R.drawable.red_bg);
 			break;
 		case 2:						
-			viewHolder.layBottom.startAnimation(animationSlectCard);
-			viewHolder.layBottom.setBackgroundResource(R.drawable.card_blue);			
+			viewHolder.bgFrame.startAnimation(animationSlectCard);
+			viewHolder.bgFrame.setBackgroundResource(R.drawable.blue_bg);			
 			break;
 		case 3:						
-			viewHolder.layBottom.startAnimation(animationSlectCard);
-			viewHolder.layBottom.setBackgroundResource(R.drawable.card_white);
+			viewHolder.bgFrame.startAnimation(animationSlectCard);
+			viewHolder.bgFrame.setBackgroundResource(R.drawable.white_bg);
 			break;			
 		default:
 			break;
@@ -182,7 +189,14 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {
 		viewHolder.tvTitle.setText(questionHolder.title);
-		viewHolder.tvQuestion.setText(questionHolder.text);		
+		if(questionHolder.text == null) {
+			viewHolder.tvQuestion.setVisibility(View.GONE);
+		}
+		else {
+			viewHolder.tvQuestion.setVisibility(View.VISIBLE);
+			viewHolder.tvQuestion.setText(questionHolder.text);			
+		}
+				
 		viewHolder.relativeLayout.setBackground(questionHolder.color);
 
 		if(questionHolder.card != null) {

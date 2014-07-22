@@ -11,6 +11,7 @@ public class MainActivityHolder {
 	public ImageView imgVolchock = null;
 	public TextView tvActionText = null;
 	public FrameLayout layBottom = null;
+	public FrameLayout bgFrame = null;
 	
 	// for dialog
 	public Button cancelButton = null;

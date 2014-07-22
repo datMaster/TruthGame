@@ -7,4 +7,5 @@ public class QuestionHolder {
 	public String text;
 	public Drawable color;
 	public Drawable card;
+	public boolean isJocker = false;
 }
