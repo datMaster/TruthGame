@@ -20,6 +20,6 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:scaleType="centerInside"
-        android:src="@drawable/ula" />
+        android:src="@drawable/ulax" />
 
 </FrameLayout>

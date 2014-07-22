@@ -2,6 +2,8 @@ package com.truthgame;
 
 import com.primerworldapps.truthgame.R;
 import com.truthgame.fragments.ProfileFragment;
+
+import android.support.v7.app.ActionBar;
 import android.support.v7.app.ActionBarActivity;
 import android.support.v4.app.Fragment;
 import android.app.Activity;
@@ -23,6 +25,12 @@ public class ProfileActivity extends ActionBarActivity {
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, new PlaceholderFragment(this)).commit();
 		}
+		
+		ActionBar abar = getSupportActionBar();
+		abar.setDisplayHomeAsUpEnabled(true);
+		abar.setDisplayShowHomeEnabled(false);
+		abar.setDisplayShowTitleEnabled(true);	
+		abar.setDisplayUseLogoEnabled(false);	
 	}
 
 	@Override
@@ -42,7 +50,8 @@ public class ProfileActivity extends ActionBarActivity {
 //		if (id == R.id.action_settings) {
 //			return true;
 //		}
-		return super.onOptionsItemSelected(item);
+		finish();
+		return true;
 	}
 
 //	/**

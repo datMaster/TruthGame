@@ -1,6 +1,7 @@
 package com.truthgame;
 
 import java.util.Locale;
+
 import com.bugsense.trace.BugSenseHandler;
 import com.parse.Parse;
 import com.parse.ParseAnalytics;
@@ -10,6 +11,8 @@ import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 import com.truthgame.fragments.MoreFragment;
 import com.truthgame.fragments.Rulesfragment;
 import com.truthgame.logic.GameLogic;
+import com.truthgame.utils.AppRater;
+
 import android.support.v7.app.ActionBarActivity;
 import android.support.v7.app.ActionBar;
 import android.support.v4.app.Fragment;
@@ -40,7 +43,7 @@ public class MainActivity extends ActionBarActivity implements
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	ViewPager mViewPager;
+	ViewPager mViewPager;		
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -92,7 +95,17 @@ public class MainActivity extends ActionBarActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}
+		
+		AppRater appRater = new AppRater();
+		appRater.app_launched(this);
 	}
+	
+//	@Override
+//	public void onBackPressed() {	 
+//		AppRater appRater = new AppRater();
+//		appRater.app_launched(getApplicationContext());
+//		appRater.showRateDialog(getApplicationContext(), getSharedPreferences().editor());
+//	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
