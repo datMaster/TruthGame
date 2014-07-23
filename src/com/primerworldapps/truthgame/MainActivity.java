@@ -25,7 +25,7 @@ import com.parse.ParseAnalytics;
 import com.parse.ParseUser;
 import com.primerworldapps.truthgame.appRater.AppRater;
 import com.primerworldapps.truthgame.fragments.MoreFragment;
-import com.primerworldapps.truthgame.fragments.Rulesfragment;
+import com.primerworldapps.truthgame.fragments.RulesFragment;
 import com.primerworldapps.truthgame.logic.GameLogic;
 import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 
@@ -248,7 +248,7 @@ public class MainActivity extends ActionBarActivity implements
 			case 2: {
 				rootView = inflater.inflate(R.layout.fragment_rules, container,
 						false);
-				new Rulesfragment(getActivity(),
+				new RulesFragment(getActivity(),
 						rootView);
 				break;
 			}
