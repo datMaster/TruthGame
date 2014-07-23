@@ -10,7 +10,6 @@ import android.view.KeyEvent;
 import android.view.View;
 import android.view.View.OnClickListener;
 import android.view.Window;
-import android.view.WindowManager;
 import android.view.animation.Animation;
 import android.view.animation.Animation.AnimationListener;
 import android.view.animation.AnimationUtils;
@@ -18,14 +17,13 @@ import android.widget.Button;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 import com.primerworldapps.truthgame.Constants;
 import com.primerworldapps.truthgame.R;
 import com.primerworldapps.truthgame.holders.MainActivityHolder;
 import com.primerworldapps.truthgame.holders.QuestionHolder;
+import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 
 public class GameLogic extends Activity implements OnClickListener, AnimationListener {
 	

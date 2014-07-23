@@ -36,11 +36,11 @@
     <string name="button_leter">Позже</string>
     
     
-    <string name="rate_title_text">rate title</string>
-    <string name="rate_content_text">rate_content_text</string>
-    <string name="rate_ok_text">rate_ok_text</string>
-    <string name="rate_later_text">rate_later_text</string>
-    <string name="rate_never_text">rate_never_text</string>
+    <string name="rate_title_text">Оцените Игру в правду</string>
+    <string name="rate_content_text">Если Вам понравилась Игра, оцените ее в 5 звезд на следующем экране :)</string>
+    <string name="rate_ok_text">Оценить</string>
+    <string name="rate_later_text">Позже</string>
+    <string name="rate_never_text">Спрятать</string>
     
     <string name="dialog_exit_title">Вы уверены что хотите выйти?</string>
     <string name="dialog_exit_text">Желаем Вам приятного дня!\nВозвращайтесь скорее и раскажите\nдрузьям об этом приложении!</string>

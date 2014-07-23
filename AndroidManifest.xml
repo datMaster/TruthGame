@@ -33,7 +33,8 @@
         </activity>
         <activity
             android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
-            android:theme="@android:style/Theme.Translucent" />
+            android:theme="@android:style/Theme.Translucent" />                
+        
         <activity
             android:name="com.primerworldapps.truthgame.QuestionActivity"
             android:label="@string/title_activity_question" >

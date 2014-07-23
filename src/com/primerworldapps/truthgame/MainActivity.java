@@ -2,34 +2,32 @@ package com.primerworldapps.truthgame;
 
 import java.util.Locale;
 
-import com.bugsense.trace.BugSenseHandler;
-import com.parse.Parse;
-import com.parse.ParseAnalytics;
-import com.parse.ParseUser;
-import com.primerworldapps.truthgame.R;
-import com.primerworldapps.truthgame.fragments.MoreFragment;
-import com.primerworldapps.truthgame.fragments.Rulesfragment;
-import com.primerworldapps.truthgame.logic.GameLogic;
-import com.primerworldapps.truthgame.utils.AppRater;
-import com.purplebrain.adbuddiz.sdk.AdBuddiz;
-
-import android.support.v7.app.ActionBarActivity;
-import android.support.v7.app.ActionBar;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentManager;
-import android.support.v4.app.FragmentTransaction;
-import android.support.v4.app.FragmentPagerAdapter;
 import android.app.AlertDialog;
-import android.app.Dialog;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentPagerAdapter;
+import android.support.v4.app.FragmentTransaction;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.ActionBar;
+import android.support.v7.app.ActionBarActivity;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
+
+import com.bugsense.trace.BugSenseHandler;
+import com.parse.Parse;
+import com.parse.ParseAnalytics;
+import com.parse.ParseUser;
+import com.primerworldapps.truthgame.appRater.AppRater;
+import com.primerworldapps.truthgame.fragments.MoreFragment;
+import com.primerworldapps.truthgame.fragments.Rulesfragment;
+import com.primerworldapps.truthgame.logic.GameLogic;
+import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -46,8 +44,7 @@ public class MainActivity extends ActionBarActivity implements
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	ViewPager mViewPager;	
-	private AppRater appRater;
+	ViewPager mViewPager;		
 	private static boolean isStarted = false;
 
 	@Override
@@ -100,30 +97,30 @@ public class MainActivity extends ActionBarActivity implements
 			actionBar.addTab(actionBar.newTab()
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
-		}
-		
-		appRater = new AppRater();
-		appRater.app_launched(this);
+		}						
+		AppRater.app_launched(this);
 	}
 	
 	@Override
-	public void onBackPressed() {	 		
+	public void onBackPressed() {
+		
+
 		
 		new AlertDialog.Builder(this)
 	    .setTitle(getResources().getString(R.string.dialog_exit_title))
 	    .setMessage(getResources().getString(R.string.dialog_exit_text))
 	    .setPositiveButton(R.string.dialog_ok_button, new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
+	        public void onClick(DialogInterface dialog, int which) { 	        	
 	        	finish();
 	        }
 	     })
 	    .setNegativeButton(R.string.dialog_cancel_button, new DialogInterface.OnClickListener() {
 	        public void onClick(DialogInterface dialog, int which) { 
-	        	
 	        }
+	        
 	     })
 	    .setIcon(R.drawable.ic_launcher)
-	     .show();
+	    .show();
 		
 	}
 
@@ -245,20 +242,20 @@ public class MainActivity extends ActionBarActivity implements
 			case 1: {
 				rootView = inflater.inflate(R.layout.fragment_main_upd, container,
 						false);
-				GameLogic gameLogic = new GameLogic(getActivity(), rootView);
+				new GameLogic(getActivity(), rootView);
 				break;
 			}
 			case 2: {
 				rootView = inflater.inflate(R.layout.fragment_rules, container,
 						false);
-				Rulesfragment rulesFragment = new Rulesfragment(getActivity(),
+				new Rulesfragment(getActivity(),
 						rootView);
 				break;
 			}
 			case 3: {
 				rootView = inflater.inflate(R.layout.fragment_more, container,
 						false);
-				MoreFragment moreFragment = new MoreFragment(getActivity(),
+				new MoreFragment(getActivity(),
 						rootView);
 				break;
 			}
