@@ -19,6 +19,9 @@ import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v4.app.FragmentPagerAdapter;
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v4.view.ViewPager;
@@ -43,7 +46,9 @@ public class MainActivity extends ActionBarActivity implements
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	ViewPager mViewPager;		
+	ViewPager mViewPager;	
+	private AppRater appRater;
+	private static boolean isStarted = false;
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -81,8 +86,9 @@ public class MainActivity extends ActionBarActivity implements
 		Parse.initialize(this, "g39Xh682yGrw6CLBvQTsyFJPXdCr7oFbvxB33aBl",
 				"VG7Hpcep5cDPGoFdpASiTZVbsUgwPvkmrJII70i3");
 		ParseAnalytics.trackAppOpened(getIntent());
-		if (ParseUser.getCurrentUser() == null) {
+		if (ParseUser.getCurrentUser() == null && !isStarted) {
 			startActivity(new Intent(this, LoginActivity.class));
+			isStarted = true;
 		}		
 
 		// For each of the sections in the app, add a tab to the action bar.
@@ -96,16 +102,30 @@ public class MainActivity extends ActionBarActivity implements
 					.setTabListener(this));
 		}
 		
-		AppRater appRater = new AppRater();
+		appRater = new AppRater();
 		appRater.app_launched(this);
 	}
 	
-//	@Override
-//	public void onBackPressed() {	 
-//		AppRater appRater = new AppRater();
-//		appRater.app_launched(getApplicationContext());
-//		appRater.showRateDialog(getApplicationContext(), getSharedPreferences().editor());
-//	}
+	@Override
+	public void onBackPressed() {	 		
+		
+		new AlertDialog.Builder(this)
+	    .setTitle(getResources().getString(R.string.dialog_exit_title))
+	    .setMessage(getResources().getString(R.string.dialog_exit_text))
+	    .setPositiveButton(R.string.dialog_ok_button, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	finish();
+	        }
+	     })
+	    .setNegativeButton(R.string.dialog_cancel_button, new DialogInterface.OnClickListener() {
+	        public void onClick(DialogInterface dialog, int which) { 
+	        	
+	        }
+	     })
+	    .setIcon(R.drawable.ic_launcher)
+	     .show();
+		
+	}
 
 	@Override
 	public boolean onCreateOptionsMenu(Menu menu) {
