@@ -148,12 +148,11 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
 			viewHolder.bgFrame.setBackgroundResource(R.drawable.blue_bg);			
 			break;
-		case 3:						
+		default :						
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
 			viewHolder.bgFrame.setBackgroundResource(R.drawable.white_bg);
 			break;			
-		default:
-			break;
+		
 		}
 	}
 

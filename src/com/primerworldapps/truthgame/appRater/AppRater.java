@@ -26,9 +26,9 @@ public class AppRater {
     private final static String PREF_APP_VERSION_CODE = "app_version_code";
 
     private final static int DAYS_UNTIL_PROMPT = 3;
-    private final static int LAUNCHES_UNTIL_PROMPT = 7;
+    private final static int LAUNCHES_UNTIL_PROMPT = 3;
     private static int DAYS_UNTIL_PROMPT_FOR_REMIND_LATER = 3;
-    private static int LAUNCHES_UNTIL_PROMPT_FOR_REMIND_LATER = 7;
+    private static int LAUNCHES_UNTIL_PROMPT_FOR_REMIND_LATER = 3;
     private static boolean isDark;
     private static boolean themeSet;
     private static boolean hideNoButton;

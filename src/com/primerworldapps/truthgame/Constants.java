@@ -13,7 +13,7 @@ public class Constants {
 	public static final int QUESTION_STROKE = 5;
 	public static final int QUESTION_RADIUS_CORNER = 10;
 	
-	public static final int MAX_QUESTION_RANDOM = 30;
+	public static final int MAX_QUESTION_RANDOM = 40;
 	public static final int QUESTION_RANDOM_DIV = 10;
 	public static final int QUESTION_COUNT_RECLAM = 5;
 }
