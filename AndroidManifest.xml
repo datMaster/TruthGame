@@ -22,7 +22,7 @@
         android:theme="@style/AppTheme" >        
 
         <activity
-            android:name="com.truthgame.MainActivity"
+            android:name="com.primerworldapps.truthgame.MainActivity"
             android:label="@string/game_title"
             android:screenOrientation="landscape" >
             <intent-filter>
@@ -35,16 +35,16 @@
             android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.truthgame.QuestionActivity"
+            android:name="com.primerworldapps.truthgame.QuestionActivity"
             android:label="@string/title_activity_question" >
         </activity>
         <activity
-            android:name="com.truthgame.LoginActivity"
+            android:name="com.primerworldapps.truthgame.LoginActivity"
             android:label="@string/game_title"
             android:screenOrientation="landscape" >
         </activity>
         <activity
-            android:name="com.truthgame.ProfileActivity"
+            android:name="com.primerworldapps.truthgame.ProfileActivity"
             android:label="@string/profile"
             android:screenOrientation="landscape" >
         </activity>

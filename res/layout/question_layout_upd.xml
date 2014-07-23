@@ -22,7 +22,9 @@
         android:id="@+id/textView_question_text_upd"
         android:layout_width="fill_parent"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+
+        android:layout_weight="5"
+
         android:gravity="center_horizontal"
         android:paddingLeft="30dp"
         android:paddingRight="30dp"
@@ -35,8 +37,9 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:adjustViewBounds="true"
-        android:maxWidth="50dp"
-        android:scaleType="centerCrop" />
+
+        android:maxWidth="40dp"
+        android:scaleType="centerInside" />       
 
     <LinearLayout
         android:layout_width="wrap_content"
