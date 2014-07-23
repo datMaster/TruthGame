@@ -67,13 +67,13 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.tvQuestion = (TextView) dialog.findViewById(R.id.textView_question_text_upd);
 		viewHolder.lnLayoutBg = (LinearLayout) dialog.findViewById(R.id.LinearLayout_bg_upd);
 		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title_upd);
-		viewHolder.okButton = (Button) dialog.findViewById(R.id.button_rotate_upd);
-		viewHolder.cancelButton = (Button) dialog.findViewById(R.id.button_online_upd);
+		viewHolder.rotateButton = (Button) dialog.findViewById(R.id.button_rotate_upd);
+		viewHolder.onlineButton = (Button) dialog.findViewById(R.id.button_online_upd);
 //		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
 		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card_upd);		
 //		viewHolder.relativeLayout = (RelativeLayout) dialog.findViewById(R.id.relativeLayout_question);
-		viewHolder.okButton.setOnClickListener(this);
-		viewHolder.cancelButton.setOnClickListener(this);
+		viewHolder.rotateButton.setOnClickListener(this);
+		viewHolder.onlineButton.setOnClickListener(this);
 		
 	}
 	
@@ -98,10 +98,12 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 						
 			break;
 		case R.id.button_rotate_upd:
+			viewHolder.rotateButton.setBackgroundResource(R.drawable.grey_button_rotate);
 			dialog.dismiss();
 			reset();
 			break;
 		case R.id.button_online_upd:
+			viewHolder.onlineButton.setBackgroundResource(R.drawable.online_grey);
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(Intent.ACTION_SEND);
 			sendIntent.putExtra(Intent.EXTRA_TEXT, 
@@ -200,7 +202,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 				
 //		viewHolder.relativeLayout.setBackground(questionHolder.color);
 		viewHolder.lnLayoutBg.setBackgroundResource(questionHolder.color);
-		viewHolder.okButton.setBackgroundResource(questionHolder.buttonColor);
+		viewHolder.rotateButton.setBackgroundResource(questionHolder.buttonColor);
 
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);

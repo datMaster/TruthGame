@@ -14,8 +14,8 @@ public class MainActivityHolder {
 	public FrameLayout bgFrame = null;
 	
 	// for dialog
-	public Button cancelButton = null;
-	public Button okButton = null;
+	public Button onlineButton = null;
+	public Button rotateButton = null;
 	public TextView tvTitle = null;
 	public TextView tvQuestion = null;
 	public LinearLayout buttonsLayout = null;
