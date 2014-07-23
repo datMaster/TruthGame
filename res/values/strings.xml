@@ -34,6 +34,21 @@
     <string name="loading">Загрузка аватара...</string>
     <string name="game_title">Игра в правду</string>
     <string name="button_leter">Позже</string>
+    
+    
+    <string name="rate_title_text">rate title</string>
+    <string name="rate_content_text">rate_content_text</string>
+    <string name="rate_ok_text">rate_ok_text</string>
+    <string name="rate_later_text">rate_later_text</string>
+    <string name="rate_never_text">rate_never_text</string>
+    
+    <string name="dialog_exit_title">Вы уверены что хотите выйти?</string>
+    <string name="dialog_exit_text">Желаем Вам приятного дня!\nВозвращайтесь скорее и раскажите\nдрузьям об этом приложении!</string>
+    <string name="dialog_ok_button">ОК</string>
+    <string name="dialog_cancel_button">Отмена</string>
+    
+    
+    
 
     <string-array name="actions">
         <item name="action_yellow">Выпал желтый цвет!</item>
