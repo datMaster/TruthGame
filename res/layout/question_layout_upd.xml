@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:background="@drawable/blue_dialog_bg"
     android:gravity="center"
-    android:orientation="vertical" >
+    android:orientation="vertical"
+    android:padding="@dimen/question_dimens" >
 
     <TextView
         android:id="@+id/textView_title_upd"
