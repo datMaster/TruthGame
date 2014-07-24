@@ -4,6 +4,7 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.KeyEvent;
@@ -75,7 +76,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	
 	private void reset() {
 		viewHolder.tvActionText.setText(activity.getString(R.string.action_begin_text));
-		viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.bground_main));
+		viewHolder.bgFrame.setBackground(activity.getResources().getDrawable(R.drawable.bground_main));
 	}
 
 
@@ -134,19 +135,19 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		switch (cardID) {
 		case 0:								
 			viewHolder.bgFrame.startAnimation(animationSlectCard);			
-			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.yellow_bg));
+			viewHolder.bgFrame.setBackground(activity.getResources().getDrawable(R.drawable.yellow_bg));
 			break;
 		case 1:			
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
-			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.red_bg));
+			viewHolder.bgFrame.setBackground(activity.getResources().getDrawable(R.drawable.red_bg));
 			break;
 		case 2:						
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
-			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.blue_bg));			
+			viewHolder.bgFrame.setBackground(activity.getResources().getDrawable(R.drawable.blue_bg));			
 			break;
 		default :						
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
-			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.white_bg));
+			viewHolder.bgFrame.setBackground(activity.getResources().getDrawable(R.drawable.white_bg));
 			break;					
 		}
 	}
@@ -192,8 +193,8 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			viewHolder.tvQuestion.setText(questionHolder.text);			
 		}				
 		
-		viewHolder.rotateButton.setBackground(getResources().getDrawable(questionHolder.color));
-		viewHolder.rotateButton.setBackground(getResources().getDrawable(questionHolder.buttonColor));
+		viewHolder.rotateButton.setBackground(activity.getResources().getDrawable(questionHolder.color));
+		viewHolder.rotateButton.setBackground(activity.getResources().getDrawable(questionHolder.buttonColor));
 
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);
