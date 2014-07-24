@@ -197,8 +197,8 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.rotateButton.setBackgroundResource(questionHolder.buttonColor);
 		viewHolder.lnLayoutBg.setBackgroundResource(questionHolder.color);
 
-		if(questionHolder.card != null) {
-			viewHolder.cardImage.setBackground(questionHolder.card);
+		if(questionHolder.card != -1) {
+			viewHolder.cardImage.setBackgroundResource(questionHolder.card);
 			viewHolder.cardImage.setVisibility(View.VISIBLE);
 		}
 		else {

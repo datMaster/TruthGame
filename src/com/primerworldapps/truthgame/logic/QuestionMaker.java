@@ -30,17 +30,17 @@ public class QuestionMaker {
 		int id = random.nextInt(Constants.MAX_CARDS);
 		switch (id) {
 		case Constants.JOKER_CARD:
-			holder.card = activity.getResources().getDrawable(R.drawable.action_joker);
+			holder.card = R.drawable.action_joker;
 			holder.isJocker = true;
 			break;
 		case Constants.PLUS_ONE_CARD:
-			holder.card = activity.getResources().getDrawable(R.drawable.action_more);
+			holder.card = R.drawable.action_more;
 			break;
 		case Constants.REDIRECT_CARD:
-			holder.card = activity.getResources().getDrawable(R.drawable.action_change);
+			holder.card = R.drawable.action_change;
 			break;
 		default:
-			holder.card = null;
+			holder.card = -1;
 			break;
 		}
 	}
