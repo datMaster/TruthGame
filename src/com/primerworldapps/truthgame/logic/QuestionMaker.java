@@ -60,9 +60,9 @@ public class QuestionMaker {
 			holder.text = activity.getResources().getString(
 					R.string.white_question);
 		}
-//		ShapeMaker shape = new ShapeMaker(activity, color);
+
 		holder.title = activity.getResources().getString(title);
-		holder.color = color; //shape.getGradient();
+		holder.color = color;
 		holder.buttonColor = buttonColor;
 	}
 	

@@ -1,0 +1,7 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:drawable="@drawable/button_online"
+          android:state_pressed="true" />
+    <item android:drawable="@drawable/grey_button_rotate"
+          android:state_focused="true" />
+    <item android:drawable="@drawable/online_grey" />
+</selector>

@@ -67,9 +67,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		viewHolder.tvTitle = (TextView) dialog.findViewById(R.id.textView_title_upd);
 		viewHolder.rotateButton = (Button) dialog.findViewById(R.id.button_rotate_upd);
 		viewHolder.onlineButton = (Button) dialog.findViewById(R.id.button_online_upd);
-//		viewHolder.buttonsLayout = (LinearLayout) dialog.findViewById(R.id.linearLayout_buttons);
 		viewHolder.cardImage = (ImageView) dialog.findViewById(R.id.imageView_card_upd);		
-//		viewHolder.relativeLayout = (RelativeLayout) dialog.findViewById(R.id.relativeLayout_question);
 		viewHolder.rotateButton.setOnClickListener(this);
 		viewHolder.onlineButton.setOnClickListener(this);
 		
@@ -77,7 +75,7 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	
 	private void reset() {
 		viewHolder.tvActionText.setText(activity.getString(R.string.action_begin_text));
-		viewHolder.bgFrame.setBackgroundResource(R.drawable.bground_main);
+		viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.bground_main));
 	}
 
 
@@ -96,12 +94,10 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 						
 			break;
 		case R.id.button_rotate_upd:
-			viewHolder.rotateButton.setBackgroundResource(R.drawable.grey_button_rotate);
 			dialog.dismiss();
 			reset();
 			break;
 		case R.id.button_online_upd:
-			viewHolder.onlineButton.setBackgroundResource(R.drawable.online_grey);
 			Intent sendIntent = new Intent();
 			sendIntent.setAction(Intent.ACTION_SEND);
 			sendIntent.putExtra(Intent.EXTRA_TEXT, 
@@ -138,21 +134,20 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		switch (cardID) {
 		case 0:								
 			viewHolder.bgFrame.startAnimation(animationSlectCard);			
-			viewHolder.bgFrame.setBackgroundResource(R.drawable.yellow_bg);
+			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.yellow_bg));
 			break;
 		case 1:			
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
-			viewHolder.bgFrame.setBackgroundResource(R.drawable.red_bg);
+			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.red_bg));
 			break;
 		case 2:						
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
-			viewHolder.bgFrame.setBackgroundResource(R.drawable.blue_bg);			
+			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.blue_bg));			
 			break;
 		default :						
 			viewHolder.bgFrame.startAnimation(animationSlectCard);
-			viewHolder.bgFrame.setBackgroundResource(R.drawable.white_bg);
-			break;			
-		
+			viewHolder.bgFrame.setBackground(getResources().getDrawable(R.drawable.white_bg));
+			break;					
 		}
 	}
 
@@ -195,11 +190,10 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		else {
 			viewHolder.tvQuestion.setVisibility(View.VISIBLE);
 			viewHolder.tvQuestion.setText(questionHolder.text);			
-		}
-				
-//		viewHolder.relativeLayout.setBackground(questionHolder.color);
-		viewHolder.lnLayoutBg.setBackgroundResource(questionHolder.color);
-		viewHolder.rotateButton.setBackgroundResource(questionHolder.buttonColor);
+		}				
+		
+		viewHolder.rotateButton.setBackground(getResources().getDrawable(questionHolder.color));
+		viewHolder.rotateButton.setBackground(getResources().getDrawable(questionHolder.buttonColor));
 
 		if(questionHolder.card != null) {
 			viewHolder.cardImage.setBackground(questionHolder.card);

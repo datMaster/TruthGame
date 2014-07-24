@@ -99,6 +99,7 @@ public class MainActivity extends ActionBarActivity implements
 					.setTabListener(this));
 		}						
 		AppRater.app_launched(this);
+		AdBuddiz.showAd(this);
 	}
 	
 	@Override
