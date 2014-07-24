@@ -14,20 +14,33 @@
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="35dp"
         android:text="TextView"
-        android:textAppearance="?android:attr/textAppearanceMedium"
+        android:textAppearance="?android:attr/textAppearanceLarge"
         android:textColor="@color/white"
         android:textStyle="bold" />
 
-    <TextView
-        android:id="@+id/textView_question_text_upd"
-        android:layout_width="fill_parent"
+    <ScrollView
+        android:id="@+id/scrollView1"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="10"
-        android:gravity="center_horizontal"
-        android:paddingLeft="30dp"
-        android:paddingRight="30dp"
-        android:text="TextView"
-        android:textColor="@color/white" />
+        android:layout_margin="35dp" >
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical"
+            android:padding="5dp" >
+
+            <TextView
+                android:id="@+id/textView_question_text_upd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="TextView"
+                android:textAppearance="?android:attr/textAppearanceMedium"
+                android:textColor="@color/white"
+                android:textStyle="italic" />
+        </LinearLayout>
+    </ScrollView>
 
     <ImageView
         android:id="@+id/imageView_card_upd"
@@ -66,7 +79,6 @@
             android:layout_weight="1"
             android:minHeight="40dip"
             android:paddingLeft="2dp" />
-
     </LinearLayout>
 
 </LinearLayout>

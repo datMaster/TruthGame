@@ -34,21 +34,15 @@
     <string name="loading">Загрузка аватара...</string>
     <string name="game_title">Игра в правду</string>
     <string name="button_leter">Позже</string>
-    
-    
     <string name="rate_title_text">Оцените Игру в правду</string>
     <string name="rate_content_text">Если Вам понравилась Игра, оцените ее в 5 звезд на следующем экране :)</string>
     <string name="rate_ok_text">Оценить</string>
     <string name="rate_later_text">Позже</string>
     <string name="rate_never_text">Спрятать</string>
-    
     <string name="dialog_exit_title">Вы уверены что хотите выйти?</string>
     <string name="dialog_exit_text">Желаем Вам приятного дня!\nВозвращайтесь скорее и раскажите\nдрузьям об этом приложении!</string>
     <string name="dialog_ok_button">ОК</string>
     <string name="dialog_cancel_button">Отмена</string>
-    
-    
-    
 
     <string-array name="actions">
         <item name="action_yellow">Выпал желтый цвет!</item>
@@ -99,7 +93,7 @@
     <string name="rate_link">https://play.google.com/store/apps/details?id=com.primerworldapps.truthgame</string>
 
     <string-array name="blue_questions">
-﻿                  <item>Есть ли у вас конкретная цель в жизни?</item>
+﻿                            <item>Есть ли у вас конкретная цель в жизни?</item>
         <item>Какие ошибки допустили родители в вашем воспитании?</item>
         <item>В детстве вы отказывались дружить с толстыми или некрасивыми детьми?</item>
         <item>Есть ли у вас какой-либо секрет от родителей? Почему вы что-то от них до сих пор скрываете?</item>
@@ -125,7 +119,7 @@
         <item>Тебя когда-нибудь предавали? Если да, то кто и как?</item>
         <item>Какой самый нестандартный комплимент тебе говорили?</item>
         <item>Какую фразу Ваша мама произносит чаще всего?</item>
-        <item>Расскажи о своем самом большом заблуждении в детстве)</item>
+        <item>Расскажи о своем самом большом заблуждении в детстве</item>
         <item>Что тебя может действительно напугать до обморока?</item>
         <item>Самый лучший момент в твоей жизни</item>
         <item>Какой сон у вас был самым реалистичным(о чем он был) и лучше всего запомнился?</item>
