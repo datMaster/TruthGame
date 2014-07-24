@@ -65,3 +65,5 @@ proguard/
 project.properties
 
 .settings
+
+AndroidManifest.xml

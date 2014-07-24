@@ -9,11 +9,11 @@ import android.view.View;
 import android.view.View.OnClickListener;
 import android.widget.Button;
 
-public class Rulesfragment implements OnClickListener{
+public class RulesFragment implements OnClickListener{
 
 	private Activity activity;	
 	
-	public Rulesfragment(Activity activity, View v) {
+	public RulesFragment(Activity activity, View v) {
 		this.activity = activity;
 		Button buttonRate = (Button) v.findViewById(R.id.button_rate);
 		buttonRate.setOnClickListener(this);
