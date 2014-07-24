@@ -98,8 +98,7 @@ public class MainActivity extends ActionBarActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}						
-		AppRater.app_launched(this);
-		AdBuddiz.showAd(this);
+		AppRater.app_launched(this);		
 	}
 	
 	@Override
