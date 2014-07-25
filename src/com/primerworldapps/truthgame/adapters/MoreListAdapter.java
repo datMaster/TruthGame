@@ -1,10 +1,9 @@
 package com.primerworldapps.truthgame.adapters;
 
 import java.util.ArrayList;
-
 import com.primerworldapps.truthgame.R;
 import com.primerworldapps.truthgame.holders.MoreViewHolder;
-
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.net.Uri;
 import android.view.View.OnClickListener;
@@ -31,9 +30,8 @@ public class MoreListAdapter extends BaseAdapter implements OnClickListener {
 	public MoreListAdapter(Activity activity) {
 		this.activity = activity;
 		this.holdersList = new ArrayList<MoreViewHolder>();	
-		inflater = 
-		(LayoutInflater) this.activity.getSystemService(this.activity.LAYOUT_INFLATER_SERVICE);
-		initialization();
+		inflater = this.activity.getLayoutInflater(); 
+		initialization();	
 	}
 	
 	private void initialization() {
@@ -63,6 +61,7 @@ public class MoreListAdapter extends BaseAdapter implements OnClickListener {
 		return position;
 	}
 
+	@SuppressLint("InflateParams")
 	@Override
 	public View getView(int position, View convertView, ViewGroup parent) {
 

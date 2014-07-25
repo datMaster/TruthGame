@@ -4,7 +4,6 @@ import java.util.Random;
 
 import android.app.Activity;
 import android.app.Dialog;
-import android.content.Context;
 import android.content.Intent;
 import android.graphics.drawable.ColorDrawable;
 import android.view.KeyEvent;
@@ -183,8 +182,8 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		dialog.getWindow().getAttributes().windowAnimations = R.style.QuestionDialogAnimation;
 	}
 	
-	private void dialogSetQuestionText(QuestionHolder questionHolder) {
-		viewHolder.tvTitle.setText(questionHolder.title);
+	private void dialogSetQuestionText(QuestionHolder questionHolder) {		
+		viewHolder.tvTitle.setText(questionHolder.title);							
 		if(questionHolder.text == null) {
 			viewHolder.tvQuestion.setVisibility(View.GONE);
 		}
@@ -193,7 +192,6 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 			viewHolder.tvQuestion.setText(questionHolder.text);			
 		}				
 		
-//		viewHolder.rotateButton.setBackgroundResource(resid);(activity.getResources().getDrawable(questionHolder.color));
 		viewHolder.rotateButton.setBackgroundResource(questionHolder.buttonColor);
 		viewHolder.lnLayoutBg.setBackgroundResource(questionHolder.color);
 

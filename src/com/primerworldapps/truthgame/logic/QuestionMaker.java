@@ -33,12 +33,12 @@ public class QuestionMaker {
 			holder.card = R.drawable.action_joker;
 			holder.isJocker = true;
 			break;
-		case Constants.PLUS_ONE_CARD:
-			holder.card = R.drawable.action_more;
-			break;
-		case Constants.REDIRECT_CARD:
-			holder.card = R.drawable.action_change;
-			break;
+//		case Constants.PLUS_ONE_CARD:
+//			holder.card = R.drawable.action_more;
+//			break;
+//		case Constants.REDIRECT_CARD:
+//			holder.card = R.drawable.action_change;
+//			break;
 		default:
 			holder.card = -1;
 			break;
