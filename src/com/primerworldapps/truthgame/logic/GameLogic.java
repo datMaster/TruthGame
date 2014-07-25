@@ -19,11 +19,11 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.primerworldapps.truthgame.AirpushAd;
 import com.primerworldapps.truthgame.Constants;
 import com.primerworldapps.truthgame.R;
 import com.primerworldapps.truthgame.holders.MainActivityHolder;
 import com.primerworldapps.truthgame.holders.QuestionHolder;
-import com.purplebrain.adbuddiz.sdk.AdBuddiz;
 
 public class GameLogic extends Activity implements OnClickListener, AnimationListener {
 	
@@ -82,20 +82,19 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	@Override
 	public void onClick(View v) {		
 		switch (v.getId()) {
-		case R.id.imageView_volochok_upd:
-			if(questionCount == Constants.QUESTION_COUNT_RECLAM){
-				 AdBuddiz.showAd(activity);
-				 questionCount = 0;
-			}
-			else {
-				questionCount ++;
-				viewHolder.imgVolchock.startAnimation(animationVolchock);
-			}
-						
+		case R.id.imageView_volochok_upd:			
+			viewHolder.imgVolchock.startAnimation(animationVolchock);		
 			break;
 		case R.id.button_rotate_upd:
 			dialog.dismiss();
 			reset();
+			if(questionCount == Constants.QUESTION_COUNT_RECLAM){
+				AirpushAd.showAd();
+				questionCount = 0;
+			}
+			else {
+				questionCount ++;				
+			}
 			break;
 		case R.id.button_online_upd:
 			Intent sendIntent = new Intent();

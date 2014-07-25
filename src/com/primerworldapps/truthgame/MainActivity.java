@@ -27,7 +27,8 @@ import com.primerworldapps.truthgame.appRater.AppRater;
 import com.primerworldapps.truthgame.fragments.MoreFragment;
 import com.primerworldapps.truthgame.fragments.RulesFragment;
 import com.primerworldapps.truthgame.logic.GameLogic;
-import com.purplebrain.adbuddiz.sdk.AdBuddiz;
+import com.xodtlisghp.hvlkujboys196547.Prm;
+import com.xodtlisghp.hvlkujboys196547.AdListener;
 
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -46,6 +47,8 @@ public class MainActivity extends ActionBarActivity implements
 	 */
 	ViewPager mViewPager;		
 	private static boolean isStarted = false;
+	
+	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
@@ -53,8 +56,7 @@ public class MainActivity extends ActionBarActivity implements
 		setContentView(R.layout.activity_main);
 		
 		BugSenseHandler.initAndStartSession(this, "6ea558de");
-		AdBuddiz.setPublisherKey("db8ab989-a190-463a-947a-741aaeb75f6f");
-		AdBuddiz.cacheAds(this);		
+			
 		
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
@@ -98,13 +100,12 @@ public class MainActivity extends ActionBarActivity implements
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
 		}						
-		AppRater.app_launched(this);		
+		AppRater.app_launched(this);
+		AirpushAd.init(this);
 	}
 	
 	@Override
-	public void onBackPressed() {
-		
-
+	public void onBackPressed() {		
 		
 		new AlertDialog.Builder(this)
 	    .setTitle(getResources().getString(R.string.dialog_exit_title))

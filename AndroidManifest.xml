@@ -13,6 +13,8 @@
     <uses-permission android:name="android.permission.USE_CREDENTIALS" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
 
     <application
         android:allowBackup="true"
@@ -31,9 +33,6 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.purplebrain.adbuddiz.sdk.AdBuddizActivity"
-            android:theme="@android:style/Theme.Translucent" />
-        <activity
             android:name="com.primerworldapps.truthgame.QuestionActivity"
             android:label="@string/title_activity_question" >
         </activity>
@@ -46,6 +45,31 @@
             android:name="com.primerworldapps.truthgame.ProfileActivity"
             android:label="@string/profile"
             android:screenOrientation="landscape" >
+        </activity>
+
+        <meta-data
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.xodtlisghp.hvlkujboys196547.APPID"
+            android:value="230869" />
+        <meta-data
+            android:name="com.xodtlisghp.hvlkujboys196547.APIKEY"
+            android:value="android*1406312563196547661" />
+
+        <activity
+            android:name="com.xodtlisghp.hvlkujboys196547.MainActivity"
+            android:configChanges="orientation|screenSize"
+            android:exported="false"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.xodtlisghp.hvlkujboys196547.BrowserActivity"
+            android:configChanges="orientation|screenSize" />
+        <activity
+            android:name="com.xodtlisghp.hvlkujboys196547.VDActivity"
+            android:configChanges="orientation|screenSize"
+            android:screenOrientation="landscape"
+            android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
         </activity>
     </application>
 
