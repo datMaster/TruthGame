@@ -1,148 +1,110 @@
 package com.primerworldapps.truthgame;
 
-import android.app.Activity;
-import android.app.ProgressDialog;
-import android.content.Intent;
-import android.content.IntentSender;
-import android.os.Bundle;
-import android.view.View;
-import android.view.Window;
-import android.widget.Button;
-import android.widget.Toast;
-
 import com.google.android.gms.common.ConnectionResult;
-import com.google.android.gms.common.GooglePlayServicesClient;
-import com.google.android.gms.common.SignInButton;
-import com.google.android.gms.plus.PlusClient;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.GoogleApiClient.ConnectionCallbacks;
+import com.google.android.gms.common.api.GoogleApiClient.OnConnectionFailedListener;
+import com.google.android.gms.plus.Plus;
+import com.google.android.gms.plus.model.people.Person;
 import com.parse.LogInCallback;
 import com.parse.ParseException;
 import com.parse.ParseUser;
 import com.parse.SignUpCallback;
 
-public class LoginActivity extends Activity implements
-		GooglePlayServicesClient.ConnectionCallbacks,
-		GooglePlayServicesClient.OnConnectionFailedListener, android.view.View.OnClickListener{
+import android.app.Activity;
+import android.app.ProgressDialog;
+import android.content.Intent;
+import android.content.IntentSender.SendIntentException;
+import android.os.Bundle;
+import android.view.View;
+import android.view.Window;
+import android.view.View.OnClickListener;
+import android.widget.Toast;
 
-	private ParseUser user;
-	private SignInButton loginButton;
+public class LoginActivity extends Activity implements ConnectionCallbacks,
+		OnConnectionFailedListener, OnClickListener {
+
+	/* Request code used to invoke sign in user interactions. */
+	private static final int RC_SIGN_IN = 0;
+
+	/* Client used to interact with Google APIs. */
+	private GoogleApiClient mGoogleApiClient;
+
+	/*
+	 * A flag indicating that a PendingIntent is in progress and prevents us
+	 * from starting further intents.
+	 */
+	private boolean mIntentInProgress;
 	private ProgressDialog progressDialog;
-	private Button button_leter;
+	private ParseUser user;
 
-	public final int REQUEST_CODE_RESOLVE_ERR = 9000;
-	private final int CANCEL = 0;
-
-	private PlusClient plusClient;
-
-	@Override
-	protected void onCreate(Bundle savedInstanceState) {
+	public void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
 
-		progressDialog = new ProgressDialog(this);
-		plusClient = new PlusClient.Builder(this, this, this).build();
+		mGoogleApiClient = new GoogleApiClient.Builder(this)
+				.addConnectionCallbacks(this)
+				.addOnConnectionFailedListener(this).addApi(Plus.API)
+				.addScope(Plus.SCOPE_PLUS_LOGIN).build();
+
 		screenInit();
 	}
 
-	@Override
-	public void onConnectionFailed(ConnectionResult connectionResult) {
-		if (connectionResult.hasResolution()) {
-			try {
-				connectionResult.startResolutionForResult(this,
-						REQUEST_CODE_RESOLVE_ERR);
-			} catch (IntentSender.SendIntentException e) {
-				plusClient.connect();
-			}
-		} else {
-			Toast.makeText(
-					this,
-					getString(R.string.gplus_error_code)
-							+ connectionResult.getErrorCode(),
-					Toast.LENGTH_SHORT).show();
-		}
+	private void screenInit() {
+		findViewById(R.id.btn_sign_in).setOnClickListener(this);
+		findViewById(R.id.button_leter).setOnClickListener(this);
+	}
 
+	protected void onStart() {
+		super.onStart();
+	}
+
+	protected void onStop() {
+		super.onStop();
+
+		if (mGoogleApiClient.isConnected()) {
+			mGoogleApiClient.disconnect();
+		}
+	}
+
+	@Override
+	public void onConnectionFailed(ConnectionResult result) {
+		if (!mIntentInProgress && result.hasResolution()) {
+			try {
+				mIntentInProgress = true;
+				result.startResolutionForResult(this, RC_SIGN_IN);
+			} catch (SendIntentException e) {
+				// The intent was canceled before it was sent. Return to the
+				// default
+				// state and attempt to connect to get an updated
+				// ConnectionResult.
+				mIntentInProgress = false;
+				mGoogleApiClient.connect();
+			}
+		}
 	}
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		if (plusClient != null) {
+		Person currentPerson = Plus.PeopleApi
+				.getCurrentPerson(mGoogleApiClient);
+		if (currentPerson != null) {
+
 			user = new ParseUser();
-			user.setUsername(plusClient.getCurrentPerson().getDisplayName());
+			user.setUsername(currentPerson.getDisplayName());
+
 			user.setPassword("my-pass");
-			user.setEmail(plusClient.getAccountName());
-			user.put("avatar", plusClient.getCurrentPerson().getImage()
-					.getUrl());
+
+			user.setEmail(Plus.AccountApi.getAccountName(mGoogleApiClient));
+			user.put("avatar", currentPerson.getImage().getUrl());
 			doAuth(user);
 		} else {
 			progressDialog.dismiss();
-			Toast.makeText(LoginActivity.this, getString(R.string.gplus_null),
-					Toast.LENGTH_SHORT).show();
+			Toast.makeText(LoginActivity.this,
+					getString(R.string.gplus_null), Toast.LENGTH_SHORT).show();
 		}
 
-	}
-
-	@Override
-	public void onDisconnected() {
-		progressDialog.dismiss();
-		Toast.makeText(this, getString(R.string.disconnected),
-				Toast.LENGTH_SHORT).show();
-
-	}
-
-	@Override
-	protected void onStop() {
-		super.onStop();
-		plusClient.disconnect();
-
-	}
-
-	@Override
-	public void onActivityResult(int requestCode, int resultCode, Intent data) {
-		super.onActivityResult(requestCode, resultCode, data);
-
-		switch (resultCode) {
-		case CANCEL: {
-			progressDialog.dismiss();
-		}
-			break;
-		case RESULT_OK: {
-			plusClient.connect();
-			progressDialog = ProgressDialog.show(this,
-					getString(R.string.connection),
-					getString(R.string.connecting_auth));
-		}
-			break;
-		default:
-			break;
-		}
-	}
-
-	protected void signIn() {		
-		ParseUser.logInInBackground(plusClient.getCurrentPerson()
-				.getDisplayName(), "my-pass", new LogInCallback() {
-			public void done(ParseUser user, ParseException e) {
-				if (user != null) {
-					progressDialog.dismiss();
-					Toast.makeText(LoginActivity.this,
-							getString(R.string.welcome), Toast.LENGTH_SHORT)
-							.show();
-					finish();
-				} else {
-					progressDialog.dismiss();
-					Toast.makeText(LoginActivity.this,
-							getString(R.string.error_code) + e.getMessage(),
-							Toast.LENGTH_SHORT).show();
-				}
-			}
-		});
-	}
-
-	@Override
-	public void onBackPressed() {
-		Intent startMain = new Intent(Intent.ACTION_MAIN);
-		startMain.addCategory(Intent.CATEGORY_HOME);
-		startMain.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-		startActivity(startMain);
 	}
 
 	protected void doAuth(ParseUser user) {
@@ -153,27 +115,49 @@ public class LoginActivity extends Activity implements
 		});
 	}
 
-	private void screenInit() {
-		loginButton = (SignInButton) findViewById(R.id.btn_sign_in);
-		button_leter = (Button) findViewById(R.id.button_leter);
-		loginButton.setOnClickListener(this);
-		button_leter.setOnClickListener(this);
+	protected void signIn() {
+		Person currentPerson = Plus.PeopleApi
+				.getCurrentPerson(mGoogleApiClient);
+		ParseUser.logInInBackground(currentPerson.getDisplayName(), "my-pass",
+				new LogInCallback() {
+					public void done(ParseUser user, ParseException e) {
+						if (user != null) {
+							progressDialog.dismiss();
+							Toast.makeText(LoginActivity.this,
+									getString(R.string.welcome),
+									Toast.LENGTH_SHORT).show();
+							finish();
+						} else {
+							progressDialog.dismiss();
+							Toast.makeText(
+									LoginActivity.this,
+									getString(R.string.error_code)
+											+ e.getMessage(),
+									Toast.LENGTH_SHORT).show();
+						}
+					}
+				});
 	}
 
-	protected void startGooglePlus() {
-		if (!plusClient.isConnected()) {
-			plusClient.connect();
-			progressDialog = ProgressDialog.show(this,
-					getString(R.string.connection),
-					getString(R.string.connecting_auth));
+	protected void onActivityResult(int requestCode, int responseCode,
+			Intent intent) {
+		if (requestCode == RC_SIGN_IN) {
+			mIntentInProgress = false;
 
+			if (!mGoogleApiClient.isConnecting()) {
+				mGoogleApiClient.connect();
+			}
 		}
+	}
+
+	public void onConnectionSuspended(int cause) {
+		mGoogleApiClient.connect();
 	}
 
 	@Override
 	public void onClick(View v) {
 		switch (v.getId()) {
-		case R.id.button_leter:			
+		case R.id.button_leter:
 			finish();
 			break;
 
@@ -181,9 +165,16 @@ public class LoginActivity extends Activity implements
 			startGooglePlus();
 			break;
 		}
-		
 	}
 
-	
+	public void startGooglePlus() {
+		if (!mGoogleApiClient.isConnected()) {
+			mGoogleApiClient.connect();
+			progressDialog = ProgressDialog.show(this,
+					getString(R.string.connection),
+					getString(R.string.connecting_auth));
+
+		}
+	}
 
 }

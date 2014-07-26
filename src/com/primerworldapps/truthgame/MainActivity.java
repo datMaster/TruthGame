@@ -27,8 +27,6 @@ import com.primerworldapps.truthgame.appRater.AppRater;
 import com.primerworldapps.truthgame.fragments.MoreFragment;
 import com.primerworldapps.truthgame.fragments.RulesFragment;
 import com.primerworldapps.truthgame.logic.GameLogic;
-import com.xodtlisghp.hvlkujboys196547.Prm;
-import com.xodtlisghp.hvlkujboys196547.AdListener;
 
 public class MainActivity extends ActionBarActivity implements
 		ActionBar.TabListener {
@@ -45,19 +43,16 @@ public class MainActivity extends ActionBarActivity implements
 	/**
 	 * The {@link ViewPager} that will host the section contents.
 	 */
-	ViewPager mViewPager;		
+	ViewPager mViewPager;
 	private static boolean isStarted = false;
-	
-	
 
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
-		
+
 		BugSenseHandler.initAndStartSession(this, "6ea558de");
-			
-		
+
 		// Set up the action bar.
 		final ActionBar actionBar = getSupportActionBar();
 		actionBar.setNavigationMode(ActionBar.NAVIGATION_MODE_TABS);
@@ -86,9 +81,10 @@ public class MainActivity extends ActionBarActivity implements
 				"VG7Hpcep5cDPGoFdpASiTZVbsUgwPvkmrJII70i3");
 		ParseAnalytics.trackAppOpened(getIntent());
 		if (ParseUser.getCurrentUser() == null && !isStarted) {
-			startActivity(new Intent(this, LoginActivity.class));
+			// startActivity(new Intent(this, LoginActivity.class));
+			loginActivity();
 			isStarted = true;
-		}		
+		}
 
 		// For each of the sections in the app, add a tab to the action bar.
 		for (int i = 0; i < mSectionsPagerAdapter.getCount(); i++) {
@@ -99,30 +95,36 @@ public class MainActivity extends ActionBarActivity implements
 			actionBar.addTab(actionBar.newTab()
 					.setText(mSectionsPagerAdapter.getPageTitle(i))
 					.setTabListener(this));
-		}						
+		}
 		AppRater.app_launched(this);
 		AirpushAd.init(this);
 	}
-	
+
 	@Override
-	public void onBackPressed() {		
-		
+	public void onBackPressed() {
+
 		new AlertDialog.Builder(this)
-	    .setTitle(getResources().getString(R.string.dialog_exit_title))
-	    .setMessage(getResources().getString(R.string.dialog_exit_text))
-	    .setPositiveButton(R.string.dialog_ok_button, new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 	        	
-	        	finish();
-	        }
-	     })
-	    .setNegativeButton(R.string.dialog_cancel_button, new DialogInterface.OnClickListener() {
-	        public void onClick(DialogInterface dialog, int which) { 
-	        }
-	        
-	     })
-	    .setIcon(R.drawable.ic_launcher)
-	    .show();
-		
+				.setTitle(getResources().getString(R.string.dialog_exit_title))
+				.setMessage(getResources().getString(R.string.dialog_exit_text))
+				.setPositiveButton(R.string.dialog_ok_button,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+								finish();
+							}
+						})
+				.setNegativeButton(R.string.dialog_cancel_button,
+						new DialogInterface.OnClickListener() {
+							public void onClick(DialogInterface dialog,
+									int which) {
+							}
+
+						}).setIcon(R.drawable.ic_launcher).show();
+
+	}
+
+	private void loginActivity() {
+		startActivity(new Intent(this, LoginActivity.class));
 	}
 
 	@Override
@@ -139,18 +141,18 @@ public class MainActivity extends ActionBarActivity implements
 		// automatically handle clicks on the Home/Up button, so long
 		// as you specify a parent activity in AndroidManifest.xml.
 		int id = item.getItemId();
-		
-		switch (id) {				
+
+		switch (id) {
 		case R.id.profile:
-			if(ParseUser.getCurrentUser() != null)
+			if (ParseUser.getCurrentUser() != null)
 				startActivity(new Intent(this, ProfileActivity.class));
 			else
-				startActivity(new Intent(this, LoginActivity.class));
+				loginActivity();
 			break;
 
 		default:
 			break;
-		}		
+		}
 		return super.onOptionsItemSelected(item);
 	}
 
@@ -241,23 +243,21 @@ public class MainActivity extends ActionBarActivity implements
 			View rootView = null;
 			switch (getArguments().getInt(ARG_SECTION_NUMBER)) {
 			case 1: {
-				rootView = inflater.inflate(R.layout.fragment_main_upd, container,
-						false);
+				rootView = inflater.inflate(R.layout.fragment_main_upd,
+						container, false);
 				new GameLogic(getActivity(), rootView);
 				break;
 			}
 			case 2: {
 				rootView = inflater.inflate(R.layout.fragment_rules, container,
 						false);
-				new RulesFragment(getActivity(),
-						rootView);
+				new RulesFragment(getActivity(), rootView);
 				break;
 			}
 			case 3: {
 				rootView = inflater.inflate(R.layout.fragment_more, container,
 						false);
-				new MoreFragment(getActivity(),
-						rootView);
+				new MoreFragment(getActivity(), rootView);
 				break;
 			}
 			default:

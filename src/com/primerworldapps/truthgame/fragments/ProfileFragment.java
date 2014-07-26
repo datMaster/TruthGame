@@ -4,7 +4,6 @@ import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
 import android.view.View.OnClickListener;
-import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -20,8 +19,7 @@ public class ProfileFragment implements OnClickListener{
 	private TextView tvUserName;
 	private TextView tvUserMail;
 	private TextView tvLoading;
-	private ImageView avatar;
-	private Button logout;
+	private ImageView avatar;	
 	private Activity activity;
 	
 	
@@ -37,15 +35,13 @@ public class ProfileFragment implements OnClickListener{
 		tvUserMail = (TextView) rootView.findViewById(R.id.textView_user_mail);
 		tvLoading = (TextView) rootView.findViewById(R.id.textView_loading);
 		avatar = (ImageView) rootView.findViewById(R.id.imageView_avatar);
-		logout = (Button) rootView.findViewById(R.id.button_logout);		
-		logout.setOnClickListener(this);
+		rootView.findViewById(R.id.button_logout).setOnClickListener(this);				
 		
 		tvUserName.setText(ParseUser.getCurrentUser().getUsername());
 		tvUserMail.setText(ParseUser.getCurrentUser().getEmail());		
 		
 		new DownloadImage(avatar, tvLoading)
-        .execute(ParseUser.getCurrentUser().getString("avatar"));		
-	
+        .execute(ParseUser.getCurrentUser().getString("avatar"));			
 	}
 
 	@Override

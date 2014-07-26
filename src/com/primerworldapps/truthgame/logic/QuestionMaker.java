@@ -31,7 +31,6 @@ public class QuestionMaker {
 		switch (id) {
 		case Constants.JOKER_CARD:
 			holder.card = R.drawable.action_joker;
-//			holder.isJocker = true;
 			break;
 		default:
 			holder.card = -1;

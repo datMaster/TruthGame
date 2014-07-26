@@ -88,7 +88,7 @@
                     android:id="@+id/textView_types_text"
                     android:layout_width="fill_parent"
                     android:layout_height="wrap_content"
-                    android:text="@string/rules_steps_text"
+                    android:text="@string/rules_text"
                     android:textColor="@android:color/white"
                     android:textSize="18sp"
                     android:typeface="serif" />
