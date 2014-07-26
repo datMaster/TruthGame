@@ -182,24 +182,19 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	}
 	
 	private void dialogSetQuestionText(QuestionHolder questionHolder) {		
-		viewHolder.tvTitle.setText(questionHolder.title);							
-		if(questionHolder.text == null) {
-			viewHolder.tvQuestion.setVisibility(View.GONE);
-		}
-		else {
-			viewHolder.tvQuestion.setVisibility(View.VISIBLE);
-			viewHolder.tvQuestion.setText(questionHolder.text);			
-		}				
-		
-		viewHolder.rotateButton.setBackgroundResource(questionHolder.buttonColor);
+		viewHolder.tvTitle.setText(questionHolder.title);									
+//		viewHolder.rotateButton.setBackgroundResource(questionHolder.buttonColor);
 		viewHolder.lnLayoutBg.setBackgroundResource(questionHolder.color);
 
 		if(questionHolder.card != -1) {
-			viewHolder.cardImage.setBackgroundResource(questionHolder.card);
+			viewHolder.tvQuestion.setVisibility(View.GONE);
 			viewHolder.cardImage.setVisibility(View.VISIBLE);
+			viewHolder.cardImage.setBackgroundResource(questionHolder.card);			
 		}
 		else {
-			viewHolder.cardImage.setVisibility(View.GONE);
+			viewHolder.cardImage.setVisibility(View.GONE);	
+			viewHolder.tvQuestion.setVisibility(View.VISIBLE);
+			viewHolder.tvQuestion.setText(questionHolder.text);
 		}
 	}	
 }

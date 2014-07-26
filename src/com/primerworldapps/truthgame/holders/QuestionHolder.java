@@ -5,6 +5,5 @@ public class QuestionHolder {
 	public String text;
 	public int color;
 	public int card;
-	public boolean isJocker = false;
-	public int buttonColor;
+	public boolean isJocker = false;	
 }
