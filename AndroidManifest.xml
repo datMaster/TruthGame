@@ -1,8 +1,8 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.primerworldapps.truthgame"
-    android:versionCode="1"
-    android:versionName="1.0" >
+    android:versionCode="3"
+    android:versionName="2.0" >
 
     <uses-sdk
         android:minSdkVersion="8"
@@ -53,22 +53,25 @@
             android:name="com.google.android.gms.version"
             android:value="@integer/google_play_services_version" />
         <meta-data
-            android:name="com.dskuidp.xckswin94753.APIKEY.APPID"
+            android:name="com.google.android.gms.version"
+            android:value="@integer/google_play_services_version" />
+        <meta-data
+            android:name="com.dskuidp.xckswin94753.APPID"
             android:value="230834" />
         <meta-data
-            android:name="com.dskuidp.xckswin94753.APIKEY.APIKEY"
+            android:name="com.dskuidp.xckswin94753.APIKEY"
             android:value="android*1406292156947537497" />
 
         <activity
-            android:name="com.dskuidp.xckswin94753.APIKEY.MainActivity"
+            android:name="com.dskuidp.xckswin94753.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.dskuidp.xckswin94753.APIKEY.BrowserActivity"
+            android:name="com.dskuidp.xckswin94753.BrowserActivity"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.dskuidp.xckswin94753.APIKEY.VDActivity"
+            android:name="com.dskuidp.xckswin94753.VDActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >
