@@ -1,12 +1,12 @@
 package com.primerworldapps.truthgame;
 
-import android.app.Activity;
+import com.dskuidp.xckswin94753.Prm;
 
-import com.xodtlisghp.hvlkujboys196547.Prm;
+import android.app.Activity;
 
 public class AirpushAd {
 	
-	private static Prm prm;		
+	private static com.dskuidp.xckswin94753.Prm prm;		
 	
 	public static void init(Activity activity) {
 		if(prm == null)
