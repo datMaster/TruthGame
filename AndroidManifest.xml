@@ -15,6 +15,8 @@
     <uses-permission android:name="android.permission.ACCESS_WIFI_STATE" />
     <uses-permission android:name="android.permission.READ_PHONE_STATE" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION" />
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION" />
 
     <application
         android:allowBackup="true"
@@ -48,25 +50,22 @@
         </activity>
 
         <meta-data
-            android:name="com.google.android.gms.version"
-            android:value="@integer/google_play_services_version" />
+            android:name="com.dskuidp.xckswin94753.APIKEY.APPID"
+            android:value="230834" />
         <meta-data
-            android:name="com.xodtlisghp.hvlkujboys196547.APPID"
-            android:value="230869" />
-        <meta-data
-            android:name="com.xodtlisghp.hvlkujboys196547.APIKEY"
-            android:value="android*1406312563196547661" />
+            android:name="com.dskuidp.xckswin94753.APIKEY.APIKEY"
+            android:value="android*1406292156947537497" />
 
         <activity
-            android:name="com.xodtlisghp.hvlkujboys196547.MainActivity"
+            android:name="com.dskuidp.xckswin94753.APIKEY.MainActivity"
             android:configChanges="orientation|screenSize"
             android:exported="false"
             android:theme="@android:style/Theme.Translucent" />
         <activity
-            android:name="com.xodtlisghp.hvlkujboys196547.BrowserActivity"
+            android:name="com.dskuidp.xckswin94753.APIKEY.BrowserActivity"
             android:configChanges="orientation|screenSize" />
         <activity
-            android:name="com.xodtlisghp.hvlkujboys196547.VDActivity"
+            android:name="com.dskuidp.xckswin94753.APIKEY.VDActivity"
             android:configChanges="orientation|screenSize"
             android:screenOrientation="landscape"
             android:theme="@android:style/Theme.NoTitleBar.Fullscreen" >

@@ -21,8 +21,7 @@ import android.view.Window;
 import android.view.View.OnClickListener;
 import android.widget.Toast;
 
-public class LoginActivity extends Activity implements ConnectionCallbacks,
-		OnConnectionFailedListener, OnClickListener {
+public class LoginActivity extends Activity implements ConnectionCallbacks, OnConnectionFailedListener, OnClickListener {
 
 	/* Request code used to invoke sign in user interactions. */
 	private static final int RC_SIGN_IN = 0;
@@ -43,9 +42,7 @@ public class LoginActivity extends Activity implements ConnectionCallbacks,
 		this.requestWindowFeature(Window.FEATURE_NO_TITLE);
 		setContentView(R.layout.activity_login);
 
-		mGoogleApiClient = new GoogleApiClient.Builder(this)
-				.addConnectionCallbacks(this)
-				.addOnConnectionFailedListener(this).addApi(Plus.API)
+		mGoogleApiClient = new GoogleApiClient.Builder(this).addConnectionCallbacks(this).addOnConnectionFailedListener(this).addApi(Plus.API)
 				.addScope(Plus.SCOPE_PLUS_LOGIN).build();
 
 		screenInit();
@@ -87,8 +84,7 @@ public class LoginActivity extends Activity implements ConnectionCallbacks,
 
 	@Override
 	public void onConnected(Bundle arg0) {
-		Person currentPerson = Plus.PeopleApi
-				.getCurrentPerson(mGoogleApiClient);
+		Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
 		if (currentPerson != null) {
 
 			user = new ParseUser();
@@ -101,8 +97,7 @@ public class LoginActivity extends Activity implements ConnectionCallbacks,
 			doAuth(user);
 		} else {
 			progressDialog.dismiss();
-			Toast.makeText(LoginActivity.this,
-					getString(R.string.gplus_null), Toast.LENGTH_SHORT).show();
+			Toast.makeText(LoginActivity.this, getString(R.string.gplus_null), Toast.LENGTH_SHORT).show();
 		}
 
 	}
@@ -116,31 +111,22 @@ public class LoginActivity extends Activity implements ConnectionCallbacks,
 	}
 
 	protected void signIn() {
-		Person currentPerson = Plus.PeopleApi
-				.getCurrentPerson(mGoogleApiClient);
-		ParseUser.logInInBackground(currentPerson.getDisplayName(), "my-pass",
-				new LogInCallback() {
-					public void done(ParseUser user, ParseException e) {
-						if (user != null) {
-							progressDialog.dismiss();
-							Toast.makeText(LoginActivity.this,
-									getString(R.string.welcome),
-									Toast.LENGTH_SHORT).show();
-							finish();
-						} else {
-							progressDialog.dismiss();
-							Toast.makeText(
-									LoginActivity.this,
-									getString(R.string.error_code)
-											+ e.getMessage(),
-									Toast.LENGTH_SHORT).show();
-						}
-					}
-				});
+		Person currentPerson = Plus.PeopleApi.getCurrentPerson(mGoogleApiClient);
+		ParseUser.logInInBackground(currentPerson.getDisplayName(), "my-pass", new LogInCallback() {
+			public void done(ParseUser user, ParseException e) {
+				if (user != null) {
+					progressDialog.dismiss();
+					Toast.makeText(LoginActivity.this, getString(R.string.welcome), Toast.LENGTH_SHORT).show();
+					finish();
+				} else {
+					progressDialog.dismiss();
+					Toast.makeText(LoginActivity.this, getString(R.string.error_code) + e.getMessage(), Toast.LENGTH_SHORT).show();
+				}
+			}
+		});
 	}
 
-	protected void onActivityResult(int requestCode, int responseCode,
-			Intent intent) {
+	protected void onActivityResult(int requestCode, int responseCode, Intent intent) {
 		if (requestCode == RC_SIGN_IN) {
 			mIntentInProgress = false;
 
@@ -170,9 +156,7 @@ public class LoginActivity extends Activity implements ConnectionCallbacks,
 	public void startGooglePlus() {
 		if (!mGoogleApiClient.isConnected()) {
 			mGoogleApiClient.connect();
-			progressDialog = ProgressDialog.show(this,
-					getString(R.string.connection),
-					getString(R.string.connecting_auth));
+			progressDialog = ProgressDialog.show(this, getString(R.string.connection), getString(R.string.connecting_auth));
 
 		}
 	}
