@@ -40,7 +40,7 @@
     <string name="dialog_ok_button">ОК</string>
     <string name="dialog_cancel_button">Отмена</string>
     <string name="dialog_donate_title">Поддержите разработчика!</string>
-    <string name="dialog_donate_card">5457 0822 3454 7581</string>
+    <string name="dialog_donate_card">5168 7423 2150 5178</string>
     <string name="dialog_donate_name">\n\nСкричевский Михаил Вадимович\n\n</string>
     <string name="dialog_donate_text">Эта игра для вас всегда будет бесплатна и без рекламы. Пожалуйста, поддержите разработчика прямым переводом любой суммы на карту ПриватБанка:\n\n</string>
     <string name="dialog_donate_thanks">Большое спасибо!</string>
@@ -99,7 +99,7 @@
         <item>Какие человеческие качества вам больше всего не нравится?</item>
         <item>Какие качества вы больше всего цените в человеке?</item>
         <item>Какие подарки ты любишь?</item>
-﻿         <item>Есть ли у вас конкретная цель в жизни?</item>
+﻿          <item>Есть ли у вас конкретная цель в жизни?</item>
         <item>Какие ошибки допустили родители в вашем воспитании?</item>
         <item>В детстве вы отказывались дружить с толстыми или некрасивыми детьми?</item>
         <item>Есть ли у вас какой-либо секрет от родителей? Почему вы что-то от них до сих пор скрываете?</item>
