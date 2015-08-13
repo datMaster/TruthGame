@@ -35,3 +35,35 @@
 -keepnames class * implements android.os.Parcelable {
     public static final ** CREATOR;
 }
+
+-keep public class shared_presage.** { *; }
+-keep public class com.google.android.youtube.player.** { *; }
+
+-keepattributes *Annotation*
+-keepattributes JavascriptInterface
+-keepclassmembers class * {
+    @android.webkit.JavascriptInterface <methods>;
+}
+
+-keep public class io.presage.activities.PresageActivity
+
+-keep public class * implements io.presage.utils.activities.WebViewActivityHelper$WebViewInterface
+-keepclassmembers class io.presage.utils.activities.WebViewActivityHelper$WebViewInterface {
+    *;
+}
+
+-keep public class * implements io.presage.utils.activities.VideoActivityHelper$WebViewInterface
+-keepclassmembers class io.presage.activities.VideoActivityHelper$WebViewInterface {
+    *;
+}
+
+-keep public class * implements io.presage.utils.activities.VideoActivityHelper$VideoJavaScriptInterface
+-keepclassmembers class io.presage.utils.activities.VideoActivityHelper$VideoJavaScriptInterface {
+    *;
+}
+
+-keep public class io.presage.formats.Webviews$WebViewInterface
+-keep public class * implements io.presage.formats.Webviews$WebViewInterface
+-keepclassmembers class io.presage.formats.Webviews$WebViewInterface {
+    *;
+}
