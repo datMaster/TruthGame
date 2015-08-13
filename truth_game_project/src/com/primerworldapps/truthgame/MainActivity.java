@@ -1,11 +1,13 @@
 package com.primerworldapps.truthgame;
 
+import io.presage.Presage;
+import io.presage.utils.IADHandler;
+
 import java.util.Locale;
 
 import android.app.ActionBar;
 import android.app.ActionBar.Tab;
 import android.app.ActionBar.TabListener;
-import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.FragmentTransaction;
 import android.content.DialogInterface;
@@ -16,15 +18,13 @@ import android.support.v4.app.FragmentActivity;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentPagerAdapter;
 import android.support.v4.view.ViewPager;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.parse.Parse;
-import com.parse.ParseAnalytics;
-import com.parse.ParseInstallation;
 import com.parse.ParseUser;
 import com.primerworldapps.truthgame.appRater.AppRater;
 import com.primerworldapps.truthgame.fragments.MoreFragment;
@@ -45,6 +45,9 @@ public class MainActivity extends FragmentActivity implements TabListener {
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		setContentView(R.layout.activity_main);
+		
+		Presage.getInstance().setContext(this.getBaseContext());
+		Presage.getInstance().start();
 
 		// Set up the action bar.
 		final ActionBar actionBar = getActionBar();
@@ -74,6 +77,29 @@ public class MainActivity extends FragmentActivity implements TabListener {
 			actionBar.addTab(actionBar.newTab().setText(mSectionsPagerAdapter.getPageTitle(i)).setTabListener(this));
 		}
 		AppRater.app_launched(this);
+	}
+	
+	@Override
+	protected void onResume() {
+	  super.onResume();
+
+	  Presage.getInstance().adToServe("interstitial", new IADHandler() {
+
+	    @Override
+	    public void onAdNotFound() {
+	      Log.i("PRESAGE", "ad not found");
+	    }
+
+	    @Override
+	    public void onAdFound() {
+	      Log.i("PRESAGE", "ad found");
+	    }
+
+	    @Override
+	    public void onAdClosed() {
+	      Log.i("PRESAGE", "ad closed");
+	    }
+	  });
 	}
 
 	@Override

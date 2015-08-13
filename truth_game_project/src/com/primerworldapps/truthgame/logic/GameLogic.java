@@ -21,7 +21,6 @@ import android.widget.TextView;
 
 import com.primerworldapps.truthgame.Constants;
 import com.primerworldapps.truthgame.R;
-import com.primerworldapps.truthgame.donate.DonateDialog;
 import com.primerworldapps.truthgame.holders.MainActivityHolder;
 import com.primerworldapps.truthgame.holders.QuestionHolder;
 
@@ -37,7 +36,6 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 	private Dialog dialog;
 	private int cardID;
 	private QuestionMaker questionMaker;
-	private int questionCount;
 	
 	public GameLogic(Activity activ, View rootView) {
 		this.activity = activ;
@@ -49,7 +47,6 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		this.actionsSequences = this.activity.getResources().getTextArray(R.array.actions);
 		this.random = new Random();
 		this.questionMaker = new QuestionMaker(this.activity);
-		this.questionCount = 0;
 		setAnimationListener();
 		init();
 	}
@@ -88,13 +85,6 @@ public class GameLogic extends Activity implements OnClickListener, AnimationLis
 		case R.id.button_rotate_upd:
 			dialog.dismiss();
 			reset();
-			if(questionCount == Constants.QUESTION_COUNT_DONATE){
-				DonateDialog.show(activity);
-				questionCount = 0;
-			}
-			else {
-				questionCount ++;				
-			}
 			break;
 		case R.id.button_online_upd:
 			Intent sendIntent = new Intent();

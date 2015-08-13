@@ -15,5 +15,4 @@ public class Constants {
 	
 	public static final int MAX_QUESTION_RANDOM = 33;
 	public static final int QUESTION_RANDOM_DIV = 10;
-	public static final int QUESTION_COUNT_DONATE = 20;
 }

@@ -39,11 +39,6 @@
     <string name="dialog_exit_text">Желаем Вам приятного дня!\nВозвращайтесь скорее и раскажите\nдрузьям об этом приложении!</string>
     <string name="dialog_ok_button">ОК</string>
     <string name="dialog_cancel_button">Отмена</string>
-    <string name="dialog_donate_title">Поддержите разработчика!</string>
-    <string name="dialog_donate_card">5168 7423 2150 5178</string>
-    <string name="dialog_donate_name">\n\nСкричевский Михаил Вадимович\n\n</string>
-    <string name="dialog_donate_text">Эта игра для вас всегда будет бесплатна и без рекламы. Пожалуйста, поддержите разработчика прямым переводом любой суммы на карту ПриватБанка:\n\n</string>
-    <string name="dialog_donate_thanks">Большое спасибо!</string>
 
     <string-array name="actions">
         <item name="action_yellow">Выпал желтый цвет!</item>
@@ -64,14 +59,14 @@
 
     <string-array name="more_titles">
         <item>Quezzle</item>
-        <item>Top Quotes</item>
+        <item>Top Quotes Live</item>
         <item>Cartoon Quotes</item>
         <item>Brain Break</item>
         <item>Skylion Apps Вконтакте</item>
     </string-array>
     <string-array name="more_descr">
         <item>Приложение соединяет Вас с теми, кто рядом, и лучшее его применение - найти компанию в людном месте, на ивенте, в ресторане в университете, клубе или на концерте.</item>
-        <item>Лучшие цитаты из Ваших любимых сериалов абсолютно бесплатно и без подключения к интернету</item>
+        <item>Лучшие цитаты из Ваших любимых сериалов абсолютно бесплатно и всегда с собой</item>
         <item>Чтение цитат из любимых мультсериалов без подключения к интернету</item>
         <item>Минимизируйте стресс и улучшайте свою производительность</item>
         <item>Официальная группа разработчика Вконтакте</item>
